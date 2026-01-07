@@ -71,6 +71,7 @@ docReady.init(() => {
     let processedIncludes = 0;
 
     includes.forEach(i => {
+      console.log('we including');
         let filePath = i.getAttribute('src');
         fetch(filePath).then(file => {
             file.text().then(content => {
