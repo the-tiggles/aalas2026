@@ -12,10 +12,10 @@ import SIDENAV from "./global/sidenav.js";
 
 // Content Components
 import ACCORDION from "./content/accordion.js";
-import DISCOVERIES from './content/discoveries.js';
-import GALLERY from "./content/gallery.js";
-import PORTALS from "./content/portals.js";
-import RECENT_POSTS from "./content/recent-posts.js";
+// import DISCOVERIES from './content/discoveries.js';
+// import GALLERY from "./content/gallery.js";
+// import PORTALS from "./content/portals.js";
+// import RECENT_POSTS from "./content/recent-posts.js";
 import STATS from "./content/stats.js";
 
 // Templates
@@ -53,10 +53,10 @@ function initScripts() {
     SIDENAV.init();
 
     if (document.querySelectorAll('.accordion').length) { ACCORDION.init(); }
-    if (document.querySelectorAll('.discoveries').length) { DISCOVERIES.init(); }
-    if (document.querySelectorAll('.gallery').length) { GALLERY.init(); }
-    if (document.querySelectorAll('.portals').length) { PORTALS.init(); }
-    if (document.querySelectorAll('.recent-posts').length) { RECENT_POSTS.init(); }
+   //  if (document.querySelectorAll('.discoveries').length) { DISCOVERIES.init(); }
+   //  if (document.querySelectorAll('.gallery').length) { GALLERY.init(); }
+   //  if (document.querySelectorAll('.portals').length) { PORTALS.init(); }
+   //  if (document.querySelectorAll('.recent-posts').length) { RECENT_POSTS.init(); }
     if (document.querySelectorAll('.stats').length) { STATS.init(); }
 
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
