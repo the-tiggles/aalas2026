@@ -86,19 +86,3 @@ $colors: (
 }
 
 /* Floating images */
-
-.right {
-    @include bp-sm {
-        float: right;
-        margin: 0 0 1.6rem calc(100% / 12);
-        max-width: 50%;
-    }
-}
-
-.left {
-    @include bp-sm {
-        float: left;
-        margin: 0 calc(100% / 12) 1.6rem 0;
-        max-width: 50%;
-    }
-}
