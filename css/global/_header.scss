@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+header.scroll-header {
+   .inner-wrapper {
+      width: 1350px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 15px;
+      display: flex;
+   }
+}

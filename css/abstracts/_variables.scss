@@ -21,6 +21,9 @@ $color-blue-lighter: #D1F2FF;
 $color-blue-darker: #004966;
 $color-blue-darkest: #002d4d;
 
+
+
+
 /* breakpoints */
 $bp-xs: 360;
 $bp-sm: 768;
@@ -28,10 +31,23 @@ $bp-md: 1024;
 $bp-lg: 1440;
 $bp-xl: 1920;
 
+// breakpoints
+$S: 767px;
+$M: 768px;
+$L: 1024px;
+$XL: 1440px;
+
+// media queries
+@mixin MQ($canvas) {
+   @if $canvas == S {@media only screen and (max-width: $S) {@content;}}
+   @else if $canvas == M {@media only screen and (min-width: $M) {@content;}}
+   @else if $canvas == L {@media only screen and (min-width: $L) {@content;}}
+   @else if $canvas == XL {@media only screen and (min-width: $XL) {@content;}}
+}
+
+
 /* fonts */
-$font-serif: 'Rasa', serif;
-$font-sans-serif: 'Nunito Sans', sans-serif;
-$font-script: 'Permanent Marker', cursive;
+$bodyFont: "Outfit", sans-serif;
 
 /* type scale */
 $font-size-h1: clamp-min-max(4.6, 6.4, $bp-xs, $bp-lg);

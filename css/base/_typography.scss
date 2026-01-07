@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
-$bodyFont: "Outfit", sans-serif;
+// $bodyFont: "Outfit", sans-serif;
 
 body {
    color: black;
@@ -126,7 +126,7 @@ table {
     background-color: $color-blue;
     border: none;
     color: $color-white;
-    font-family: $font-sans-serif;
+    font-family: $bodyFont;
     font-weight: 700;
     padding: 0.8rem 1.6rem;
     text-align: left;
@@ -159,7 +159,7 @@ blockquote {
   border: 0;
   color: $color-black;
   display: block;
-  font-family: $font-sans-serif;
+  font-family: $bodyFont;
   font-size: $font-size-blockquote;
   font-style: italic;
   font-weight: 600;
