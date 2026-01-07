@@ -1,48 +1,41 @@
 <header class="header">
-    <div class="container">
-        <div class="header__inner">
-            <div class="header__logo">
-                <a class="header__logo-link" href="/" title="Home page">
-                    <img class="header__logo-image" src="images/brand/aalas-logo.png" alt="AALAS Foundation logo">
-                </a>
+    <div class="inner-wrapper">
+      <a class="header__logo-link" href="/" title="Home page">
+         <img class="header__logo-image" src="images/brand/aalas-logo.png" alt="AALAS Foundation logo">
+      </a>
+      <ul id="mainnav">
+         <li><a href="/programs-outreach">Programs &amp; Outreach</a></li>
+         <li><a href="#">Educational Resources</a></li>
+         <li>
+            <a href="#">Get Involved</a>
+            <ul>
+               <li><a href="/standard-template">Standard Template</a></li>
+               <li><a href="/about">About</a></li>
+               <li><a href="/ways-to-give">Ways To Give</a></li>
+               <li><a href="/faqs">FAQs</a></li>
+               <li><a href="/campaigns-impact">Campaigns & Impact</a></li>
+               <li><a href="/board-of-directors">Board of Directors</a></li>
+               <li><a href="/volunteer">Volunteer Opportunities</a></li>
+               <li><a href="/contact">Contact Us</a></li>
+               <li><a href="/events">Events</a></li>
+               <li>
+                  <a href="/news-updates">News &amp; Updates</a>
+                  <ul>
+                     <li><a href="/news-updates-single" title="Appreciation Reception &amp; Auction">Apprecition Reception &amp; Auction</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+         <li><a href="#">Our Sponsors</a></li>
+      </ul>
+      <button class="search-trigger" type="button" aria-label="Toggle Search"></button>
+      <a href="#" class="btn-green-gradient" title="Donate to AALAS">DONATE</a>
+      <button class="hamburger" type="button" aria-label="Toggle Menu">
+            <div class="hamburger__inner">
+               <span class="hamburger__line hamburger__line--top"></span>
+               <span class="hamburger__line hamburger__line--middle"></span>
+               <span class="hamburger__line hamburger__line--bottom"></span>
             </div>
-            <nav class="primary-nav">
-                <ul class="menu">
-                    <li class="menu__item menu__item--has-children">
-                        <a href="#">Learn</a>
-                        <ul class="menu">
-                            <li class="menu__item"><a href="#">Caring</a></li>
-                            <li class="menu__item"><a href="#">Helping</a></li>
-                            <li class="menu__item"><a href="#">Discovering</a></li>
-                            <li class="menu__item"><a href="#">Careers</a></li>
-                        </ul>
-                        <button class="menu__expand" type="button" aria-label="Expand Menu"><svg class="icon"><use href="#icon_chevron_down"/></svg></button>
-                    </li>
-                    <li class="menu__item menu__item--has-children">
-                        <a href="#">Fun Zone</a>
-                        <ul class="menu">
-                            <li class="menu__item"><a href="#">Activities</a></li>
-                            <li class="menu__item"><a href="#">Animal Fun Facts</a></li>
-                            <li class="menu__item"><a href="#">Vocabulary</a></li>
-                            <li class="menu__item"><a href="#">Puzzles, Posters, & More</a></li>
-                        </ul>
-                        <button class="menu__expand" type="button" aria-label="Expand Menu"><svg class="icon"><use href="#icon_chevron_down"/></svg></button>
-                    </li>
-                    <li class="menu__item"><a href="#">Contests</a></li>
-                    <li class="menu__item"><a href="#">Teacher Resources</a></li>
-                </ul>
-            </nav>
-            <button class="search-trigger" type="button" aria-label="Toggle Search">
-                 <svg class="icon"><use href="#icon_search_white"></use></svg>
-            </button>
-            <a class="header__cta button button--red" href="#">Contact Us</a>
-            <button class="hamburger" type="button" aria-label="Toggle Menu">
-                <div class="hamburger__inner">
-                    <span class="hamburger__line hamburger__line--top"></span>
-                    <span class="hamburger__line hamburger__line--middle"></span>
-                    <span class="hamburger__line hamburger__line--bottom"></span>
-                </div>
-            </button>
-        </div>
+      </button>
     </div>
 </header>

@@ -1,9 +1,12 @@
 @use '../abstracts' as *;
 
+$bodyFont: "Outfit", sans-serif;
+
 body {
    color: black;
    font-size: 16px;
    line-height: 1.4;
+   font-family: $bodyFont;
 }
 
 /* Headings */
@@ -40,6 +43,7 @@ p {
   font-size: 16px;
   line-height: 1.4;
   margin-bottom: 25px;
+  font-family: $bodyFont;
 
   a {
     
