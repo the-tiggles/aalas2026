@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+/* General Page Structure */
+
+html,
+body {
+  max-width: 100%;
+  position: relative;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+.page-overlay {
+  background-color: $color-black;
+  height: 100vh;
+  opacity: 0;
+  position: fixed;
+  transition: opacity $transition-duration-f;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 1000;
+
+  &--active {
+    opacity: 0.9;
+    visibility: visible;
+  }
+}
+
+.page-wrap {
+  background: linear-gradient($color-neutral-lightest, $color-neutral);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-block {
+//   margin-bottom: clamp-min-max(4, 6.4, $bp-xs, $bp-lg);
+}

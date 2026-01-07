@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "node build/build-run.js",
+    "watch": "node build/build-watch.js",
+    "svg-sprite": "svg-symbol-sprite -i ./images/icons -o ./images/sprite.svg -p icon_"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "countup.js": "^2.3.2",
+    "esbuild": "^0.21.5",
+    "esbuild-sass-plugin": "^3.3.1",
+    "glightbox": "^3.3.0",
+    "svg-symbol-sprite": "^1.5.2",
+    "tiny-slider": "^2.9.4"
+  }
+}

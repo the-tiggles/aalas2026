@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+.accordion {
+  &.anim .accordion__item {
+    opacity: 0;
+  }
+
+  &.anim.seen .accordion__item {
+    animation: fade-in $transition-duration-m ease forwards;
+  }
+
+  &__item {
+    border-bottom: 0.2rem solid $color-neutral;
+    transition: border-color $transition-duration-f;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+          animation-delay: calc(0.1s * #{$i}) !important;
+      }
+  }
+  }
+
+  &__title {
+    cursor: pointer;
+    display: flex;
+    font-size: $font-size-p;
+    font-weight: 700;
+    justify-content: space-between;
+    padding: 1.6rem 0;
+    transition: color $transition-duration-f ease;
+
+    &--active {
+      .accordion__icon {
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    display: flex;
+    height: 1.6rem;
+    justify-content: center;
+    margin-right: 0.4rem;
+    margin-top: 0.4rem;
+    transition: transform $transition-duration-m ease;
+    width: 1.6rem;
+
+    svg {
+      height: 1.6rem;
+      width: 1.6rem;
+    }
+  }
+    
+  &__panel {
+    height: 0;
+    overflow: hidden;
+    transition: height $transition-duration-m ease;
+  }
+
+  &__panel-inner {
+    padding: 0 0 1.6rem;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

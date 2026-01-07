@@ -1,0 +1,104 @@
+@use '../abstracts' as *;
+
+/* Colors for backgrounds and text */
+
+$colors: (
+    'red': $color-red,
+    'green': $color-green,
+    'blue': $color-blue,
+    'orange': $color-orange,
+    'white': $color-white
+);
+
+@each $class, $color in $colors {
+    .#{$class}-text {
+        color: #{$color} !important;
+
+        h1, h2, h3, h4, h5, h6, p, label, .block-link {
+            color: #{$color};
+        }
+    }
+
+    .#{$class}-bg {
+        background-color: #{$color} !important;
+    }
+
+    .#{$class}-fill {
+        fill: #{$color} !important;
+    }
+}
+
+/* Screen Ready Only */
+
+.sr-only {
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+}
+
+/* Text Alignment */
+
+.tal {
+	text-align: left !important;
+}
+
+.tac {
+	text-align: center !important;
+}
+
+.tar {
+	text-align: right !important;
+}
+
+/* Spacing */
+
+@for $i from -10 through 10 {
+    @if $i >= 0 {
+        .pt#{$i} { padding-top: calc(#{$i} * 0.8rem) !important; }
+        .pr#{$i} { padding-right: calc(#{$i} * 0.8rem) !important; }
+        .pb#{$i} { padding-bottom: calc(#{$i} * 0.8rem) !important; }
+        .pl#{$i} { padding-left: calc(#{$i} * 0.8rem) !important; }
+        .pv#{$i} { padding: calc(#{$i} * 0.8rem) 0 !important; }
+        .ph#{$i} { padding: 0 calc(#{$i} * 0.8rem) !important; }
+        .pa#{$i} { padding: calc(#{$i} * 0.8rem) !important; }
+    }
+
+	.mt#{$i} { margin-top: calc(#{$i} * 0.8rem) !important; }
+    .mr#{$i} { margin-right: calc(#{$i} * 0.8rem) !important; }
+	.mb#{$i} { margin-bottom: calc(#{$i} * 0.8rem) !important; }
+    .ml#{$i} { margin-left: calc(#{$i} * 0.8rem) !important; }
+    .mv#{$i} { padding: calc(#{$i} * 0.8rem) 0 !important; }
+    .mh#{$i} { padding: 0 calc(#{$i} * 0.8rem) !important; }
+	.ma#{$i} { padding: calc(#{$i} * 0.8rem) !important; }
+}
+
+/* Visibility */
+
+.hidden {
+	display: none !important;
+}
+
+/* Floating images */
+
+.right {
+    @include bp-sm {
+        float: right;
+        margin: 0 0 1.6rem calc(100% / 12);
+        max-width: 50%;
+    }
+}
+
+.left {
+    @include bp-sm {
+        float: left;
+        margin: 0 calc(100% / 12) 1.6rem 0;
+        max-width: 50%;
+    }
+}

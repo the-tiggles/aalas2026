@@ -1,0 +1,117 @@
+@use '../abstracts' as *;
+
+@mixin button-styles {
+//   align-items: center;
+//   appearance: none;
+//   background-color: $color-text;
+//   border: none;
+//   border-radius: 2.4rem;
+//   color: $color-white;
+//   cursor: pointer;
+//   display: inline-flex;
+//   font-family: $font-sans-serif;
+//   font-size: 1.6rem;
+//   font-weight: 700;
+//   gap: 1.2rem;
+//   line-height: 1;
+//   margin: 0;
+//   padding: 1.2rem 2.4rem;
+//   position: relative;
+//   text-align: center;
+//   text-decoration: none;
+//   transition: background-color $transition-duration-f;
+//   white-space: nowrap;
+
+  &:hover {
+   //  background-color: $color-black;
+  }
+
+  .icon {
+   //  fill: $color-white;
+   //  height: 2.4rem;
+   //  margin: -0.4rem 0;
+   //  margin: -0.4rem -0.8rem -0.4rem 0;
+   //  width: 2.4rem;
+  }
+}
+
+.button {
+  @include button-styles;
+
+  &--white {
+   //  background-color: $color-white;
+   //  color: $color-black;
+
+    &:hover {
+      // color: $color-white;
+    }
+  }
+}
+
+
+/* Styled Link */
+
+@mixin block-link-styles {
+//   align-items: center;
+//   appearance: none;
+//   color: $color-black;
+//   cursor: pointer;
+//   display: inline-flex;
+//   font-family: $font-sans-serif;
+//   font-size: 1.6rem;
+//   font-weight: 700;
+//   line-height: 1;
+//   position: relative;
+//   text-align: center;
+//   text-decoration: none;
+//   transition: color $transition-duration-f;
+//   white-space: nowrap;
+
+//   &::after {
+//     background: url('../images/icons/arrow_right.svg') center/contain no-repeat;
+//     content: '';
+//     display: block;
+//     height: 1.6rem;
+//     margin-left: 0.8rem;
+//     transition: margin $transition-duration-f ease;
+//     width: 1.6rem;
+//   }
+
+//   &:hover::after {
+//     margin-left: 1.6rem;
+//   }
+}
+
+.block-link {
+  @include block-link-styles;
+}
+
+
+/* Button Group */
+
+.button-group {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 1.6rem;
+//   margin: 0 0 2.4rem;
+
+  &--centered {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+
+  &--full-on-mobile {
+    .button {
+      // @include bp-md-max {
+      //   width: 100%;
+      // }
+    }
+  }
+
+  .button {
+    margin: 0;
+  }
+}

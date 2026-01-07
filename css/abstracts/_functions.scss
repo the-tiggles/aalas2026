@@ -1,0 +1,6 @@
+// set the min and max rem values and the min and max pixel viewport widths to proportionately scale the value with the viewport
+// e.g., fluid-min-max(10, 100, 400, 800) will scale from 10rem to 100rem as the screen width goes from 400px to 800px
+
+@function clamp-min-max($min-value, $max-value, $min-width, $max-width) {
+    @return clamp(#{$min-value}rem, calc(#{$min-value}rem + ((#{$max-value} * 10) - (#{$min-value} * 10)) * ((100vw - #{$min-width}px) / (#{$max-width} - #{$min-width}))), #{$max-value}rem);
+}

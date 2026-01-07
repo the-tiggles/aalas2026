@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.text-image {
+    container-type: inline-size;
+
+    &__wrap {
+        display: grid;
+        gap: 4rem;
+
+        @include container(720) {
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6.4rem;
+        }
+
+        @include container(1080) {
+            gap: 8rem;
+        }
+    }
+
+    &__image {
+        border-radius: 1.6rem;
+
+        &.anim {
+            opacity: 0;
+        }
+
+        &.seen {
+            animation: fade-in-left $transition-duration-s ease forwards;
+        }
+    }
+}

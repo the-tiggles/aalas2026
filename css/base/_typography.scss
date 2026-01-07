@@ -1,0 +1,275 @@
+@use '../abstracts' as *;
+
+body {
+  color: $color-text;
+  font-family: $font-sans-serif;
+  font-size: $font-size-p;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Headings */
+
+h1, .h1 {
+  color: $color-black;
+  font-family: $font-serif;
+  font-size: $font-size-h1;
+  line-height: 1;
+  margin: 0 0 1.6rem;
+}
+
+h2, .h2 {
+  color: $color-black;
+  font-family: $font-serif;
+  font-size: $font-size-h2;
+  line-height: 1;
+  margin: 0 0 1.6rem;
+}
+
+h3, .h3 {
+  color: $color-black;
+  font-family: $font-sans-serif;
+  font-size: $font-size-h3;
+  font-weight: 900;
+  line-height: 1.3;
+  margin: 0 0 1.6rem;
+}
+
+h4, .h4 {
+  color: $color-black;
+  font-family: $font-sans-serif;
+  font-size: $font-size-h4;
+  font-weight: 900;
+  line-height: 1.4;
+  margin: 0 0 0.8rem;
+}
+
+h5, .h5 {
+  color: $color-black;
+  font-family: $font-sans-serif;
+  font-size: $font-size-h5;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  line-height: 1.5;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+h6, .h6 {
+  color: $color-black;
+  font-family: $font-script;
+  font-size: $font-size-h6;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  line-height: 1.6;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+
+  &.dashed {
+    align-items: center;
+    color: $color-red;
+    display: flex;
+    gap: 1.6rem;
+    justify-content: flex-start;
+    margin-left: -3.2rem;
+
+    &::before {
+      background-color: $color-red;
+      content: '';
+      height: 0.2rem;
+      width: 4rem;
+    }
+  }
+}
+
+/* Prose */
+
+p {
+  color: $color-text;
+  font-family: $font-sans-serif;
+  font-size: $font-size-p;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 0 clamp-min-max(1.6, 2.4, $bp-xs, $bp-lg);
+
+  a {
+    color: $color-black;
+    text-decoration: underline;
+    transition: color $transition-duration-f;
+  
+    &:hover {
+      color: $color-blue;
+    }
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+}
+
+hr {
+  border-style: inherit;
+  border: 0.1rem solid $color-neutral;
+  margin: 4rem 0;
+}
+
+pre, address {
+  margin: 0 0 0.8rem;
+}
+
+code {
+  background-color: $color-neutral;
+  border: 0.2rem solid $color-neutral-dark;
+  border-radius: 0.8rem;
+  color: $color-black;
+  display: inline-block;
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-weight: 400;
+  margin: 0 0 1.6rem;
+  padding: 0.4rem;
+}
+
+/* List Styles */
+
+ul, ol {
+  margin: 0 0 1.6rem;
+  padding: 0;
+
+  li {
+    margin-bottom: 0.8rem;
+    margin-left: 2.4rem;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin-top: 0.8rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Table Styles */
+
+table {
+  border-collapse: collapse;
+  border-radius: 0.8rem;
+  border: 0;
+  box-shadow: 0 8px 16px -4px rgba($color-black, 0.1);
+  font-weight: 600;
+  margin: 0 0 1.6rem;
+  overflow: hidden;
+  width: 100%;
+
+  th {
+    background-color: $color-blue;
+    border: none;
+    color: $color-white;
+    font-family: $font-sans-serif;
+    font-weight: 700;
+    padding: 0.8rem 1.6rem;
+    text-align: left;
+
+    a {
+      color: $color-white;
+    }
+  }
+
+  tr {
+    &:nth-child(odd) { background-color: $color-white; }
+    &:nth-child(even) { background-color: $color-gray; }
+
+    td {
+      border: none;
+      color: $color-black;
+      padding: 0.8rem 1.6rem;
+      vertical-align: top;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+/* Quote Styles */
+
+blockquote {
+  border: 0;
+  color: $color-black;
+  display: block;
+  font-family: $font-sans-serif;
+  font-size: $font-size-blockquote;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 2.4rem 0;
+  padding-left: 4rem;
+  position: relative;
+
+  &::before {
+    background: url('../images/icons/quotes_red.svg') center/contain no-repeat;
+    content: '';
+    height: 2rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2rem;
+  }
+
+  p {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+  }
+}
+
+cite {
+  @extend .h6;
+  align-items: center;
+  color: $color-red;
+  display: flex;
+  gap: 1.6rem;
+  justify-content: flex-end;
+  margin: 0 0 0.8rem;
+  text-align: right;
+
+  &::before {
+    background-color: $color-red;
+    content: '';
+    height: 0.2rem;
+    width: 4rem;
+  }
+}
+
+/* Search Results */
+
+.search-result {
+  &__link {
+    text-decoration: none;
+
+    &:hover .search-result__title,
+    &:hover .search-result__url {
+      color: $color-blue;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.8rem;
+    transition: color $transition-duration-f;
+  }
+
+  &__url {
+    text-decoration: underline;
+    transition: color $transition-duration-f;
+  }
+}

@@ -1,0 +1,95 @@
+@use 'variables' as *;
+
+/* Media Queries */
+/* all values in pixels */
+
+// min-width
+
+@mixin bp-xs {
+  @media only screen and (min-width: #{$bp-xs}px) {
+    @content;
+  }
+}
+
+@mixin bp-sm {
+  @media only screen and (min-width: #{$bp-sm}px) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media only screen and (min-width: #{$bp-md}px) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media only screen and (min-width: #{$bp-lg}px) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media only screen and (min-width: #{$bp-xl}px) {
+    @content;
+  }
+}
+
+// max-width
+
+@mixin bp-xs-max {
+  @media only screen and (max-width: calc(#{$bp-xs}px - 1px)) {
+    @content;
+  }
+}
+
+@mixin bp-sm-max {
+  @media only screen and (max-width: calc(#{$bp-sm}px - 1px)) {
+    @content;
+  }
+}
+
+@mixin bp-md-max {
+  @media only screen and (max-width: calc(#{$bp-md}px - 1px)) {
+    @content;
+  }
+}
+
+@mixin bp-lg-max {
+  @media only screen and (max-width: calc(#{$bp-lg}px - 1px)) {
+    @content;
+  }
+}
+
+@mixin bp-xl-max {
+  @media only screen and (max-width: calc(#{$bp-xl}px - 1px)) {
+    @content;
+  }
+}
+
+// custom
+
+@mixin bp($width) {
+  @media only screen and (min-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin bp-max($width) {
+  @media only screen and (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+/* Container queries */
+
+// Remember to declare a containment context by adding the container-type rule to a parent element
+// e.g., .parent { container-type: inline-size; }
+
+// custom
+
+@mixin container($size) {
+  @container (min-width: #{$size}px) {
+    @content;
+  }
+}

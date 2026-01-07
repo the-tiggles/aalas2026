@@ -1,0 +1,49 @@
+@use 'functions' as *;
+
+/* colors */
+$color-red: #E2306C;
+$color-blue: #32B2E6;
+$color-green: #C0D640;
+$color-orange: #F7AB02;
+$color-neutral-lightest: #FFFBF0;
+$color-neutral-lighter: #F7EFD7;
+$color-neutral: #EADFC1;
+$color-neutral-dark: #D9CA9C;
+$color-text: #4A4A4A;
+$color-gray: #F1F1F1;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-error: #d94a40;
+$color-warning: #e0ad45;
+$color-success: #27985f;
+
+$color-blue-lighter: #D1F2FF;
+$color-blue-darker: #004966;
+$color-blue-darkest: #002d4d;
+
+/* breakpoints */
+$bp-xs: 360;
+$bp-sm: 768;
+$bp-md: 1024;
+$bp-lg: 1440;
+$bp-xl: 1920;
+
+/* fonts */
+$font-serif: 'Rasa', serif;
+$font-sans-serif: 'Nunito Sans', sans-serif;
+$font-script: 'Permanent Marker', cursive;
+
+/* type scale */
+$font-size-h1: clamp-min-max(4.6, 6.4, $bp-xs, $bp-lg);
+$font-size-h2: clamp-min-max(4.0, 4.8, $bp-xs, $bp-lg);
+$font-size-h3: clamp-min-max(2.0, 2.4, $bp-xs, $bp-lg);
+$font-size-h4: clamp-min-max(1.8, 2.0, $bp-xs, $bp-lg);
+$font-size-h5: clamp-min-max(1.4, 1.6, $bp-xs, $bp-lg);
+$font-size-h6: 1.6rem;
+$font-size-p:  clamp-min-max(1.4, 1.6, $bp-xs, $bp-lg);
+$font-size-blockquote: clamp-min-max(1.6, 1.8, $bp-xs, $bp-lg);
+
+/* transitions */
+$transition-duration-s: 1s;
+$transition-duration-m: 0.5s;
+$transition-duration-f: 0.25s;
