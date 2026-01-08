@@ -7,11 +7,15 @@
     width: 100%;
     height: calc(100% - 80px);
     transition: all .33s ease;
+    display: none;
     background: linear-gradient(
         90deg,
         $green 0%,
         $blue 100%
     );
+    @include MQ(tab) {
+      display: block;
+    }
     &:before {
         border-radius: 4px;
         content: "";

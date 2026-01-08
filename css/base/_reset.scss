@@ -40,6 +40,8 @@ html {
 body {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    opacity: 0;
+    animation: fadeIn .33s ease .2s forwards;
 }
 
 /* Highlighted Text */
