@@ -1,1 +1,51 @@
 @use '../abstracts' as *;
+
+
+section.default-hero {
+    background: linear-gradient(
+        180deg, 
+        #F5F5F5 0%, 
+         #DAE8EA 100%
+    );
+    .inner-wrapper {
+        width: 1300px;
+        max-width: 100%;
+        margin: 80px auto 0;
+        padding: 80px 15px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include MQ(S) {
+            flex-direction: column-reverse;
+            padding-top: 15px;
+        }
+        h1.page-title {
+            margin: 15px 0 25px;
+            opacity: 0;
+            animation: fadeInLeft 1s ease forwards;
+            @include MQ(M) {
+                margin: 0 0 80px;
+            }
+        }
+        .hero-image {
+            width: 620px;
+            height: 410px;
+            border-radius: 80px;
+            overflow: hidden;
+            max-width: 60%;
+            margin-bottom: -100px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            @include MQ(S) {
+                margin-bottom: 0;
+                max-width: 100%;
+                width: 100%;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
