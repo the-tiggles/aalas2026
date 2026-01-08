@@ -6,6 +6,7 @@ import docReady from './helpers/doc-ready.js';
 import animations from './helpers/animations.js';
 
 // Global Components
+import HEADER from "./global/header.js";
 import SEARCH from "./global/search.js";
 import SIDECAR from "./global/sidecar.js";
 import SIDENAV from "./global/sidenav.js";
@@ -48,19 +49,15 @@ import HOME from "./templates/home.js";
 function initScripts() {
     animations.init();
 
+    HEADER.init();
     SEARCH.init();
     SIDECAR.init();
     SIDENAV.init();
 
     if (document.querySelectorAll('.accordion').length) { ACCORDION.init(); }
-   //  if (document.querySelectorAll('.discoveries').length) { DISCOVERIES.init(); }
-   //  if (document.querySelectorAll('.gallery').length) { GALLERY.init(); }
-   //  if (document.querySelectorAll('.portals').length) { PORTALS.init(); }
-   //  if (document.querySelectorAll('.recent-posts').length) { RECENT_POSTS.init(); }
     if (document.querySelectorAll('.stats').length) { STATS.init(); }
 
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
-    // if (document.getElementsByTagName('body')[0].classList.contains('default')) { DEFAULT.init(); }
 }
 
 docReady.init(() => {

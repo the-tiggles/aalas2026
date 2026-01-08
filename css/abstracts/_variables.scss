@@ -21,6 +21,12 @@ $color-blue-lighter: #D1F2FF;
 $color-blue-darker: #004966;
 $color-blue-darkest: #002d4d;
 
+$green: #7BBE47;
+$teal: #007886;
+$blue: #1BAFC1;
+$blue2: #9BF0FA;
+$blue3: #DAE8EA;   
+
 
 
 
@@ -31,9 +37,11 @@ $bp-md: 1024;
 $bp-lg: 1440;
 $bp-xl: 1920;
 
+
 // breakpoints
 $S: 767px;
 $M: 768px;
+$tab: 991px;
 $L: 1024px;
 $XL: 1440px;
 
@@ -41,6 +49,7 @@ $XL: 1440px;
 @mixin MQ($canvas) {
    @if $canvas == S {@media only screen and (max-width: $S) {@content;}}
    @else if $canvas == M {@media only screen and (min-width: $M) {@content;}}
+   @else if $canvas == tab {@media only screen and (max-width: $tab) {@content;}}
    @else if $canvas == L {@media only screen and (min-width: $L) {@content;}}
    @else if $canvas == XL {@media only screen and (min-width: $XL) {@content;}}
 }
