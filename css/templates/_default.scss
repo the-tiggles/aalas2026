@@ -20,9 +20,12 @@ section.default-hero {
             padding-top: 15px;
         }
         h1.page-title {
-            margin: 15px 0 25px;
+            margin: 25px 0 30px;
             opacity: 0;
             animation: fadeInLeft 1s ease forwards;
+            @include MQ(S) {
+                text-align: center;
+            }
             @include MQ(M) {
                max-width: 40%;
                 margin: 0 0 80px;
@@ -48,5 +51,78 @@ section.default-hero {
                 object-fit: cover;
             }
         }
+    }
+}
+
+
+section#breadcrumbs {
+    .inner-wrapper {
+        width: 1375px;
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 15px auto 50px;
+        
+         ul.breadcrumbs-list {
+            display: flex;
+            list-style: none;
+             flex-wrap: wrap;
+            margin: 0;
+            @include MQ(M) {
+                max-width: 45%;
+            }
+            li {
+                margin: 0;
+                display: flex;
+                &:not(:last-child) {
+                    &:after {
+                        content: "//";
+                        margin: 0 5px;
+                        color: $blue;
+                        
+                    }
+                }
+                a {
+                    font-size: 15px;
+                    font-weight: 300;
+                    text-decoration: none;
+                    transition: all .2s ease;
+                    text-transform: lowercase;
+                    &[href*="index"] {
+                        font-size: 0;
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        background: url('../images/icons/icon-home.svg') center no-repeat;
+                        background-size: 15px;
+                        filter: brightness(100%);
+                        &:hover {
+                            filter: brightness(0%);
+                        }
+                    }
+                    &:not(.current-page) {
+                        color: $blue;
+                        &:hover {
+                            color: black;
+                        }
+                    }
+                    &.current-page {
+                        pointer-events: none;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+   
+}
+
+
+section#default-main {
+    > .inner-wrapper {
+        width: 1140px;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 75px 15px 40px;
+        
     }
 }

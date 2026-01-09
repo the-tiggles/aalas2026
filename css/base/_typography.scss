@@ -5,36 +5,106 @@
 body {
    color: black;
    font-size: 16px;
-   line-height: 1.4;
+   line-height: 1.6;
    font-family: $bodyFont;
 }
 
 /* Headings */
 
+
 h1, .h1 {
-  
+    line-height: 1.1;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0 0 30px;
+    @include MQ(M) {
+        font-size: 55px;
+    }
+    @include MQ(L) {
+        font-size: 60px;
+    }
+    @include MQ(XL) {
+        font-size: 72px;
+    }
 }
 
 h2, .h2 {
-
+    font-weight: 600;
+    font-size: 32px;
+    margin: 0 0 20px;
+    @include MQ(M) {
+        font-size: 42px;
+    }
+    @include MQ(L) {
+        font-size: 50px;
+    }
+    @include MQ(XL) {
+        font-size: 55px;
+    }
 }
-
 h3, .h3 {
-  
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 15px;
+    @include MQ(M) {
+        font-size: 35px;
+    }
+    @include MQ(L) {
+        font-size: 40px;
+    }
 }
 
 h4, .h4 {
-  
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 15px;
+    @include MQ(M) {
+        font-size: 26px;
+    }
 }
-
 h5, .h5 {
-
+    font-weight: 500;
+    font-size: 18px;
+    margin: 10px 0 10px;
+    text-transform: uppercase;
+    @include MQ(M) {
+        font-size: 20px;
+    }
 }
-
 h6, .h6 {
-
-
+    font-size: 17px;
+    font-weight: 300;
+    margin: 5px 0 15px;
+    @include MQ(M) {
+        font-size: 21px;
+    }
 }
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 300;
+    margin: 0 0 15px;
+    @include MQ(M) {
+        font-size: 16px;
+    }
+}
+
+.text-content {
+    a:not([class]) {
+        color: $teal;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all .2s ease;
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+
+
 
 /* Prose */
 
