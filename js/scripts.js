@@ -6,6 +6,7 @@ import docReady from './helpers/doc-ready.js';
 import animations from './helpers/animations.js';
 
 // Global Components
+import HELPER from "./global/helper.js";
 import HEADER from "./global/header.js";
 import SEARCH from "./global/search.js";
 import SIDECAR from "./global/sidecar.js";
@@ -49,6 +50,7 @@ import HOME from "./templates/home.js";
 function initScripts() {
     animations.init();
 
+    HELPER.init();
     HEADER.init();
     SEARCH.init();
     SIDECAR.init();

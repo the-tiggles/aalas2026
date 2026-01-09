@@ -1,1 +1,7 @@
 @use '../abstracts' as *;
+
+
+#home-main .inner-wrapper,
+#default-main .inner-wrapper {
+   min-height: 600px;
+}
