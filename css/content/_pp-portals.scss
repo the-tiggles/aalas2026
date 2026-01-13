@@ -1,0 +1,129 @@
+@use '../abstracts' as *;
+
+
+
+.pp-portals {
+    margin: 70px 0 60px;
+    ul.portals-list {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        list-style: none;
+        @include MQ(XL) {
+            width: calc(100% + 280px);
+            margin-left: -140px;
+        }
+        li {
+            flex-basis: 100%;
+            margin: 0;
+            
+            @include MQ(M) {
+                flex-basis: calc(50% - 8px);
+                aspect-ratio: 324 / 284;
+            }
+            @include MQ(L) {
+                flex-basis: calc(25% - 12px)
+            }
+            a {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                border-radius: 40px;
+                text-decoration: none;
+                @include MQ(S) {
+                    min-height: 160px;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+                .portal-img {
+                    width: 100%;
+                    height: 100%;
+                    content: "";
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    transform: scale(1);
+                    transition: all .33s ease;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        height: 50%;
+                        bottom: 0;
+                        width: 100%;
+                        mix-blend-mode: multiply;
+                        transition: all .33s ease;
+                        background: linear-gradient(180deg, rgba(27, 175, 193, 0.00) 0%, #1BAFC1 49.52%, #000 100%);
+                        @include MQ(S) {
+                            height: 100%;
+                        }
+                    }
+                }
+                h5 {
+                    position: relative;
+                    margin: 0;
+                    color: white;
+                    text-decoration: none;
+                    padding-bottom: 30px;
+                    transition: all .33s ease;
+                    font-size: 26px;
+                    font-weight: 600;
+                    @include MQ(S) {
+                       
+                    }
+                }
+                p {
+                    position: relative;
+                    margin: 0;
+                    position: absolute;
+                    top: 100%;
+                    transition: all .33s ease;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1.1;
+                    letter-spacing: 1px;
+                    @include MQ(S) {
+                        position: relative;
+                        padding-bottom: 25px;
+                    }
+                }
+                &:hover {
+                    @include MQ(M) {
+                        .portal-img {
+                            transform: scale(1.05);
+                            &:before {
+                                height: 100%;
+                            }
+                        }
+                        h5 {
+                            padding-bottom: 35%;
+                        }
+                        p {
+                            top: calc(100% - 50px);
+                        }
+                        
+                    }
+                    
+                }
+            }
+            &:nth-child(odd) {
+                @include MQ(L) {
+                    margin-top: -35px;
+                }
+            }
+            &:nth-child(even) {
+                @include MQ(L) {
+                    margin-bottom: -35px;
+                }
+            }
+        }
+    }
+}
