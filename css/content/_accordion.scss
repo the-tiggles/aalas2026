@@ -1,68 +1,57 @@
 @use '../abstracts' as *;
 
-.accordion {
-  &.anim .accordion__item {
-    opacity: 0;
-  }
 
-  &.anim.seen .accordion__item {
-    animation: fade-in $transition-duration-m ease forwards;
-  }
 
-  &__item {
-    border-bottom: 0.2rem solid $color-neutral;
-    transition: border-color $transition-duration-f;
-
-    @for $i from 1 through 12 {
-      &:nth-child(#{$i}) {
-          animation-delay: calc(0.1s * #{$i}) !important;
-      }
-  }
-  }
-
-  &__title {
-    cursor: pointer;
-    display: flex;
-    font-size: $font-size-p;
-    font-weight: 700;
-    justify-content: space-between;
-    padding: 1.6rem 0;
-    transition: color $transition-duration-f ease;
-
-    &--active {
-      .accordion__icon {
-        transform: rotate(135deg);
-      }
+.pp-accordion {
+    .accordion-wrapper {
+        display: grid;
+        margin: 0;
+        grid-template-rows: min-content 0fr;
+        transition: grid-template-rows .33s ease-in-out;
+        margin-bottom: 25px;
+        h4.accordion-title {
+            background: white;
+            user-select: none;
+            cursor: pointer;
+            padding: 20px 70px 20px 25px;
+            border-radius: 30px;
+            margin: 0 0 4px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            span.icon-chev {
+                position: absolute;
+                width: 34px;
+                height: 34px;
+                border: 2px solid black;
+                border-radius: 50%;
+                right: 25px;
+                top: 50%;
+                transform: translateY(-50%) rotate(0deg);
+                background: url('../images/icons/icon-chev-right.svg') no-repeat  55% center;
+                background-size: 10px 15px;
+                transition: all .33s ease;
+            }
+        }
+        .accordion-content {
+            overflow: hidden;
+            height: 0px;
+            interpolate-size: allow-keywords;
+            transition: all .33s ease-in-out;
+            overflow-y: clip;
+            padding: 0 25px;
+            background: white;
+            border-radius: 40px;
+        }
+        &.active {
+            grid-template-rows: min-content 1fr;
+            span.icon-chev {
+                transform: translateY(-50%) rotate(90deg)!important;
+            }
+            .accordion-content {
+                height: auto;
+                padding: 25px;
+            }
+        }
     }
-  }
-
-  &__icon {
-    align-items: center;
-    display: flex;
-    height: 1.6rem;
-    justify-content: center;
-    margin-right: 0.4rem;
-    margin-top: 0.4rem;
-    transition: transform $transition-duration-m ease;
-    width: 1.6rem;
-
-    svg {
-      height: 1.6rem;
-      width: 1.6rem;
-    }
-  }
-    
-  &__panel {
-    height: 0;
-    overflow: hidden;
-    transition: height $transition-duration-m ease;
-  }
-
-  &__panel-inner {
-    padding: 0 0 1.6rem;
-
-    > *:last-child {
-      margin-bottom: 0;
-    }
-  }
 }

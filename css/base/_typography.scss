@@ -86,6 +86,7 @@ p {
     font-size: 15px;
     line-height: 1.6;
     font-weight: 300;
+    font-family: $bodyFont;
     margin: 0 0 15px;
     @include MQ(M) {
         font-size: 16px;
@@ -109,11 +110,6 @@ p {
 /* Prose */
 
 p {
-  color: black;
-  font-size: 16px;
-  line-height: 1.4;
-  margin-bottom: 25px;
-  font-family: $bodyFont;
 
   a {
     
