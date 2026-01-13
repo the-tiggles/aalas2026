@@ -72,3 +72,19 @@ $font-size-blockquote: clamp-min-max(1.6, 1.8, $bp-xs, $bp-lg);
 $transition-duration-s: 1s;
 $transition-duration-m: 0.5s;
 $transition-duration-f: 0.25s;
+
+.desktop-only {
+   @include MQ(S) {
+      display: none !important;
+      visibility: none!important;
+      opacity: 0!important;
+   }
+}
+
+.mobile-only {
+   @include MQ(M) {
+      display: none !important;
+      visibility: none!important;
+      opacity: 0!important;
+   }
+}
