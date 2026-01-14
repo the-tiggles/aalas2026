@@ -32,6 +32,7 @@ h2, .h2 {
     font-weight: 600;
     font-size: 32px;
     margin: 0 0 20px;
+    line-height: 1.2;
     @include MQ(M) {
         font-size: 42px;
     }
@@ -110,16 +111,14 @@ p {
 /* Prose */
 
 p {
-
-  a {
-    
+  a:not([class]) {
     font-weight: 600;
-  
     &:hover {
       color: $color-blue;
     }
   }
 }
+
 
 strong {
   font-weight: 700;
@@ -290,4 +289,8 @@ cite {
     text-decoration: underline;
     transition: color $transition-duration-f;
   }
+}
+
+.invert {
+   color: white;
 }

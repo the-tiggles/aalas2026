@@ -77,6 +77,55 @@
    }
 }
 
+
+.btn-blue {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    background: $blue2;
+    color: black;
+    font-size: 14px;
+    padding: 12px 25px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    transition: all .2s ease;
+    border-radius: 2px;
+    box-shadow: 0 8px 15px -4px rgba(black, .35);
+    &:hover {
+        background: white;
+        box-shadow: 0 10px 18px -5px rgba(black, .2);
+    }
+    &:active {
+        background: #f1f1f1;
+        box-shadow: 0 2px 4px -1px rgba(black, .6);
+    }
+}
+
+
+.btn-chev-right {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    letter-spacing: .9px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 30px 8px 5px;
+    color: black;
+    position: relative;
+    background-image: url('images/icons/icon-chev-right.svg');
+    background-repeat: no-repeat;
+    line-height: 1;
+    background-position: calc(100% - 10px) center;
+    background-size: 6px;
+    transition: all .33s ease;
+    filter: drop-shadow(0 3px 5px rgba(black, 0));
+    &:hover {
+        animation: btnChevRight 1s ease infinite;
+        filter: drop-shadow(0 3px 5px rgba(black, .35));
+    }
+}
+
 .button {
   @include button-styles;
 
