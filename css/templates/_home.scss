@@ -302,10 +302,10 @@ section#home-main {
                 background-position: center;
                 background-size: 15px;
                 &[data-controls="prev"] {
-                    background-image: url('images/icons/icon-arrow-left.svg');
+                    background-image: url('../images/icons/icon-arrow-left.svg');
                 }
                 &[data-controls="next"] {
-                    background-image: url('images/icons/icon-arrow-right.svg');
+                    background-image: url('../images/icons/icon-arrow-right.svg');
                 }
             }
         }
