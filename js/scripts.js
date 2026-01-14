@@ -15,6 +15,7 @@ import SIDENAV from "./global/sidenav.js";
 // Content Components
 import ACCORDION from "./content/accordion.js";
 import PP_ACCORDION from './content/pp-accordion.js';
+import PROG_OUTREACH_SLIDER from './content/prog-outreach-slider.js';
 // import DISCOVERIES from './content/discoveries.js';
 // import GALLERY from "./content/gallery.js";
 // import PORTALS from "./content/portals.js";
@@ -59,6 +60,7 @@ function initScripts() {
 
     if (document.querySelectorAll('.accordion').length) { ACCORDION.init(); }
     if (document.querySelectorAll('.pp-accordion').length) { PP_ACCORDION.init(); }
+    if (document.querySelectorAll('.pp-programs-outreach-cards').length) { PROG_OUTREACH_SLIDER.init(); }
     if (document.querySelectorAll('.stats').length) { STATS.init(); }
 
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }

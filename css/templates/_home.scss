@@ -234,24 +234,6 @@ section#home-main {
                     @media (max-width: 375px) {
                         padding: 25px 20px;
                     }
-                    h4 {
-                        position: relative;
-                        padding-bottom: 10px;
-                        margin: 0 0 25px;
-                        &:after {
-                            content: "";
-                            position: absolute;
-                            top: 100%;
-                            left: 0;
-                            height: 2px;
-                            width: 100%;
-                            background: linear-gradient(
-                                270deg,
-                                $blue 0%,
-                                $green 100%
-                            );
-                        }
-                    }
                     p {
                         margin: 0 0 40px;
                         &:last-child {
@@ -267,7 +249,7 @@ section#home-main {
                 }
             }
         }
-        .tns-nav {
+        @at-root .tns-nav {
             width: 250px;
             max-width: calc(100% - 100px);
             margin: 0 auto;
@@ -288,7 +270,7 @@ section#home-main {
                 }
             }
         }
-        .tns-controls {
+        @at-root .tns-controls {
             width: 350px;
             display: flex;
             justify-content: space-between;
@@ -330,7 +312,7 @@ section#home-main {
                     animation: fadeInLeft 1s ease forwards;
                     @for $i from 1 through 4 {
                         &:nth-child(#{$i}) {
-                            animation-delay: $i * (1s /6);
+                            animation-delay: calc($i * (1s /6));
                         }
                     }
                 }

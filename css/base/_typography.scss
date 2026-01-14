@@ -64,6 +64,24 @@ h4, .h4 {
     @include MQ(M) {
         font-size: 26px;
     }
+    &.gradient-underline {
+      position: relative;
+      padding-bottom: 10px;
+      margin: 0 0 25px;
+      &:after {
+         content: "";
+         position: absolute;
+         top: 100%;
+         left: 0;
+         height: 2px;
+         width: 100%;
+         background: linear-gradient(
+            270deg,
+            $blue 0%,
+            $green 100%
+         );
+      }
+    }
 }
 h5, .h5 {
     font-weight: 500;
