@@ -70,6 +70,7 @@
    }
    &:hover {
       border-color: rgba(black, 1);
+      color: black;
       &:before {
          background-position: 100% center;
       }
