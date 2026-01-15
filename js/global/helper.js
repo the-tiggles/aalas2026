@@ -1,6 +1,7 @@
 const HELPER = {
    init: function () {
       this.lazyIMGs();
+      this.embedResponsively();
    },
    lazyIMGs: function () {
       if (
@@ -60,6 +61,22 @@ const HELPER = {
             })
          );
       }
+
+   },
+   embedResponsively: function() {
+      document.querySelectorAll('iframe').forEach(iframe => {
+         // Skip if already wrapped
+         if (iframe.parentElement.classList.contains('embed-container')) return;
+
+         const wrapper = document.createElement('div');
+         wrapper.className = 'embed-container';
+
+         // Insert wrapper before iframe
+         iframe.parentNode.insertBefore(wrapper, iframe);
+
+         // Move iframe inside wrapper
+         wrapper.appendChild(iframe);
+      });
 
    }
 
