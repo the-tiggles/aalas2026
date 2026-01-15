@@ -16,14 +16,11 @@ import SIDENAV from "./global/sidenav.js";
 import ACCORDION from "./content/accordion.js";
 import PP_ACCORDION from './content/pp-accordion.js';
 import PROG_OUTREACH_SLIDER from './content/prog-outreach-slider.js';
-// import DISCOVERIES from './content/discoveries.js';
-// import GALLERY from "./content/gallery.js";
-// import PORTALS from "./content/portals.js";
-// import RECENT_POSTS from "./content/recent-posts.js";
 import STATS from "./content/stats.js";
 
 // Templates
 import HOME from "./templates/home.js";
+import VOLUNTEER from "./templates/volunteer.js";
 // import DEFAULT from "./templates/default.js";
 
 
@@ -31,23 +28,6 @@ import HOME from "./templates/home.js";
  * Initialize Modules
  */
 
-// docReady.init(() => {
-//     animations.init();
-
-//     SEARCH.init();
-//     SIDECAR.init();
-//     SIDENAV.init();
-
-//     if (document.querySelectorAll('.accordion').length) { ACCORDION.init(); }
-//     if (document.querySelectorAll('.discoveries').length) { DISCOVERIES.init(); }
-//     if (document.querySelectorAll('.gallery').length) { GALLERY.init(); }
-//     if (document.querySelectorAll('.portals').length) { PORTALS.init(); }
-//     if (document.querySelectorAll('.recent-posts').length) { RECENT_POSTS.init(); }
-//     if (document.querySelectorAll('.stats').length) { STATS.init(); }
-
-//     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
-//     // if (document.getElementsByTagName('body')[0].classList.contains('default')) { DEFAULT.init(); }
-// });
 
 function initScripts() {
     animations.init();
@@ -62,6 +42,7 @@ function initScripts() {
     if (document.querySelectorAll('.pp-accordion').length) { PP_ACCORDION.init(); }
     if (document.querySelectorAll('.pp-programs-outreach-cards').length) { PROG_OUTREACH_SLIDER.init(); }
     if (document.querySelectorAll('.stats').length) { STATS.init(); }
+    if (document.querySelectorAll('body.volunteer').length) { VOLUNTEER.init(); }
 
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
 }

@@ -11,8 +11,8 @@
         flex-wrap: wrap;
         list-style: none;
         @include MQ(XL) {
-            width: calc(100% + 280px);
-            margin-left: -140px;
+            width: calc(100% + 80px);
+            margin-left: -40px;
         }
         li {
             flex-basis: 100%;
