@@ -180,6 +180,7 @@ header.scroll-header {
 				}
 			}
 			a.btn-gradient {
+            margin: 0;
 				@include MQ(tab) {
 					display: none;
 				}
