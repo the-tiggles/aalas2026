@@ -1,4 +1,4 @@
-const VOLUNTEER = {
+const ABOUT = {
 
    init: function () {
       this.particlesBG();
@@ -25,7 +25,7 @@ const VOLUNTEER = {
                   "type": "circle",
                   "stroke": {
                      "width": 0,
-                     "color": "#007886"
+                     "color": "#007886",
                   },
                   "polygon": {
                      "nb_sides": 4
@@ -42,12 +42,12 @@ const VOLUNTEER = {
                   "anim": {
                      "enable": false,
                      "speed": 0.4051305735838664,
-                     "opacity_min": 0.3241044588670931,
+                     "opacity_min": 0.2241044588670931,
                      "sync": false
                   }
                },
                "size": {
-                  "value": 4,
+                  "value": 25,
                   "random": true,
                   "anim": {
                      "enable": false,
@@ -60,7 +60,7 @@ const VOLUNTEER = {
                   "enable": true,
                   "distance": 150,
                   "color": "#007886",
-                  "opacity": 0.27,
+                  "opacity": 0.7,
                   "width": 2
                },
                "move": {
@@ -95,14 +95,14 @@ const VOLUNTEER = {
                   "grab": {
                      "distance": 400,
                      "line_linked": {
-                        "opacity": 1
+                        "opacity": .4
                      }
                   },
                   "bubble": {
                      "distance": 400,
                      "size": 40,
                      "duration": 2,
-                     "opacity": 8,
+                     "opacity": 2,
                      "speed": 3
                   },
                   "repulse": {
@@ -127,4 +127,4 @@ const VOLUNTEER = {
    }
 }
 
-export default VOLUNTEER;
+export default ABOUT;

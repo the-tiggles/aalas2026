@@ -21,6 +21,7 @@ import STATS from "./content/stats.js";
 // Templates
 import HOME from "./templates/home.js";
 import VOLUNTEER from "./templates/volunteer.js";
+import ABOUT from "./templates/about.js";
 // import DEFAULT from "./templates/default.js";
 
 
@@ -43,6 +44,7 @@ function initScripts() {
     if (document.querySelectorAll('.pp-programs-outreach-cards').length) { PROG_OUTREACH_SLIDER.init(); }
     if (document.querySelectorAll('.stats').length) { STATS.init(); }
     if (document.querySelectorAll('body.volunteer').length) { VOLUNTEER.init(); }
+    if (document.querySelectorAll('body.about').length) { ABOUT.init();}
 
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
 }

@@ -118,10 +118,12 @@ section#breadcrumbs {
 
 
 section#default-main {
+   position: relative;
     > .inner-wrapper {
         width: 1375px;
         margin: 0 auto;
         max-width: 100%;
+        position: relative;
         padding: 75px 15px 40px;
     }
 }

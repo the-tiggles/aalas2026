@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+
+body.about {
+    section#default-main {
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 200px);
+            z-index: 0;
+            @include MQ(S) {
+                height: calc(100% - 300px);
+            }
+            &:before {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                content: "";
+                background: linear-gradient(
+                    180deg,
+                    #f5f5f5 0%,
+                    rgba(#DAE8EA, 1) 30%,
+                    rgba(#DAE8EA, .4) 40%,
+                    rgba(#007886, .4) 70%,
+                    rgba(#007886, 1) 90%,
+                    rgba(#007886, 1) 100%
+                )
+            }
+            canvas {
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                opacity: .4;
+                position: absolute;
+            }
+            
+        }
+    }
+}
