@@ -1,12 +1,19 @@
 @use '../abstracts' as *;
 
 body.default-no-hero {
-   section.default-hero .inner-wrapper h1.page-title {
-      max-width: 100%;
-      text-align: center;
-      width: 100%;
-      animation: fadeInUp 1s ease forwards .33s;
-   }
+   section.default-hero .inner-wrapper {
+      padding: 110px 15px 55px;
+      @include MQ(S) {
+         padding: 70px 15px 20px;
+      }
+      h1.page-title {
+         max-width: 100%;
+         text-align: center;
+         width: 100%;
+         animation: fadeInUp 1s ease forwards .33s;
+      }
+
+   } 
    section#default-main>.inner-wrapper {
       padding-top: 0;
    }

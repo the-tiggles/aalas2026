@@ -3711,3 +3711,35 @@
         background-position-x: calc(100% - 3px);
     }
 }
+
+
+
+@keyframes btnChevCircleL {
+    0%, 100% {
+        background-position-x: 45%;
+        opacity: 1;
+    }
+    49.99% {
+        background-position-x: calc(0%);
+        opacity: 0;
+    }
+    50% {
+        background-position-x: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes btnChevCircleR {
+    0%, 100% {
+        background-position-x: 55%;
+        opacity: 1;
+    }
+    49.99% {
+        background-position-x: calc(100%);
+        opacity: 0;
+    }
+    50% {
+        background-position-x: 0%;
+        opacity: 0;
+    }
+}

@@ -131,6 +131,82 @@
     }
 }
 
+.btn-chev-circle-l {
+    font-size: 0;
+    width: 45px;
+    height: 45px;
+    border: 2px solid black;
+    display: inline-block;
+    border-radius: 45px;
+    overflow: hidden;
+    position: relative;
+    filter: drop-shadow(0 1px 3px rgba(black, .0));
+    transition: all .33s ease;
+    margin: 0 15px 15px 0;
+    &:before {
+        left: 0;
+        top: 0;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/icons/icon-chev-left.svg');
+        background-size: 9px;
+        background-repeat: no-repeat;
+        background-position: 45% center;
+        
+    }
+    &:hover {
+       filter: drop-shadow(0 4px 5px rgba(black, .45));
+        &:before {
+             animation: btnChevCircleL 1s ease infinite;
+        }
+    }
+    &:active {
+        transform: scale(.95);
+        filter: drop-shadow(0 2px 4px rgba(black, .75));
+    }
+}
+
+
+.btn-chev-circle-r {
+    font-size: 0;
+    width: 45px;
+    height: 45px;
+    border: 2px solid black;
+    display: inline-block;
+    border-radius: 45px;
+    overflow: hidden;
+    position: relative;
+    filter: drop-shadow(0 1px 3px rgba(black, .0));
+    transition: all .33s ease;
+    margin: 0 15px 15px 0;
+    &:before {
+        left: 0;
+        top: 0;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/icons/icon-chev-right.svg');
+        background-size: 9px;
+        background-repeat: no-repeat;
+        background-position: 55% center;
+        
+    }
+    &:hover {
+       filter: drop-shadow(0 4px 5px rgba(black, .45));
+        &:before {
+             animation: btnChevCircleR 1s ease infinite;
+        }
+    }
+    &:active {
+        transform: scale(.95);
+        filter: drop-shadow(0 2px 4px rgba(black, .75));
+    }
+}
+
+
 .button {
   @include button-styles;
 
