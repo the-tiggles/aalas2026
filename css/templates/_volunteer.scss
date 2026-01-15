@@ -21,7 +21,8 @@ body.volunteer {
 	}
 }
 
-.pp-volunteer-cards {
+.pp-volunteer-cards,
+.pp-colored-cards {
 	margin: 40px 0 150px;
 	ul.cards-list {
 		list-style: none;
@@ -48,6 +49,7 @@ body.volunteer {
 				transition: all 0.33s ease;
 				height: 100%;
 				display: flex;
+            text-decoration: none;
 				flex-direction: column;
 				border-radius: 40px;
 				padding: 25px;
@@ -55,7 +57,7 @@ body.volunteer {
 				box-shadow: 0 10px 15px -5px rgba(black, 0);
 				@include MQ(S) {
 					justify-content: center;
-					min-height: 200px;
+					min-height: 120px;
 				}
 				h4 {
 					color: black;
