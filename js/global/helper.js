@@ -4,65 +4,52 @@ const HELPER = {
       this.embedResponsively();
    },
    lazyIMGs: function () {
-      if (
-         document.querySelector('.animate-in') ||
-         document.querySelector('.animate-in-out') ||
-         document.querySelector('.lazybg') ||
-         document.querySelector('.lazyimg')
-      ) {
-         let winScrollTop = 0;
 
-         function isOnScreen(el) {
-            const rect = el.getBoundingClientRect();
-            const viewHeight = window.innerHeight || document.documentElement.clientHeight;
-            return !(rect.bottom < 0 || rect.top > viewHeight);
-         }
-
-         function toggleClass() {
-            document.querySelectorAll('.animate-in').forEach(el => {
-               if (isOnScreen(el)) {
-                  el.classList.add('inview');
-               }
-            });
-
-            document.querySelectorAll('.animate-in-out').forEach(el => {
-               if (isOnScreen(el)) {
-                  el.classList.add('inview');
-               } else {
-                  el.classList.remove('inview');
-               }
-            });
-
-            document.querySelectorAll('.lazyimg').forEach(el => {
-               if (isOnScreen(el) && !el.classList.contains('in-view')) {
-                  const theIMG = el.getAttribute('data-src');
-                  if (theIMG) {
-                     el.setAttribute('src', theIMG);
-                     el.classList.add('inview');
-                  }
-               }
-            });
-
-            document.querySelectorAll('.lazybg').forEach(el => {
-               if (isOnScreen(el) && !el.classList.contains('in-view')) {
-                  const theIMG = el.getAttribute('data-src');
-                  if (theIMG) {
-                     el.style.backgroundImage = `url('${theIMG}')`;
-                     el.classList.add('inview');
-                  }
-               }
-            });
-         }
-
-         ['scroll', 'resize', 'load'].forEach(evt =>
-            window.addEventListener(evt, () => {
-               winScrollTop = window.scrollY;
-               toggleClass();
-            })
-         );
+      function isOnScreen(el) {
+         const rect = el.getBoundingClientRect();
+         const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+         return !(rect.bottom < 0 || rect.top > viewHeight);
       }
 
+      function toggleClass() {
+
+         document.querySelectorAll('.animate-in').forEach(el => {
+            if (isOnScreen(el)) el.classList.add('inview');
+         });
+
+         document.querySelectorAll('.animate-in-out').forEach(el => {
+            el.classList.toggle('inview', isOnScreen(el));
+         });
+
+         document.querySelectorAll('.lazyimg').forEach(el => {
+            if (isOnScreen(el) && !el.classList.contains('inview')) {
+            const src = el.dataset.src;
+            if (src) {
+               el.src = src;
+               el.classList.add('inview');
+            }
+            }
+         });
+
+         document.querySelectorAll('.lazybg').forEach(el => {
+            if (isOnScreen(el) && !el.classList.contains('inview')) {
+            const src = el.dataset.src;
+            if (src) {
+               el.style.backgroundImage = `url('${src}')`;
+               el.classList.add('inview');
+            }
+            }
+         });
+      }
+
+      ['scroll', 'resize', 'load'].forEach(evt =>
+         window.addEventListener(evt, toggleClass)
+      );
+
+      // 👇 force initial run
+      toggleClass();
    },
+
    embedResponsively: function() {
       document.querySelectorAll('iframe').forEach(iframe => {
          // Skip if already wrapped

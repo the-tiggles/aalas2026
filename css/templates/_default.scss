@@ -25,6 +25,7 @@ section.default-hero {
             animation: fadeInLeft 1s ease forwards;
             @include MQ(S) {
                 text-align: center;
+                animation: fadeInUp 1s ease forwards;
             }
             @include MQ(M) {
                max-width: 40%;
@@ -77,6 +78,9 @@ section#breadcrumbs {
         max-width: 100%;
         padding: 0 15px;
         margin: 15px auto 50px;
+        @include MQ(S) {
+         margin: 15px auto;
+        }
         
          ul.breadcrumbs-list {
             display: flex;
@@ -141,5 +145,8 @@ section#default-main {
         max-width: 100%;
         position: relative;
         padding: 75px 15px 40px;
+        @include MQ(S) {
+         padding-top: 25px;
+        }
     }
 }

@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+
+.pp-50-split {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@include MQ(S) {
+		flex-direction: column-reverse !important;
+		gap: 25px;
+	}
+	.image-side {
+		flex-basis: 48%;
+		border-radius: 40px;
+		overflow: hidden;
+		@include MQ(S) {
+			flex-basis: 100%;
+		}
+	}
+	.copy-side {
+		flex-basis: 48%;
+		@include MQ(S) {
+			flex-basis: 100%;
+			width: 100%;
+		}
+	}
+	&[data-layout="copy-image"] {
+		flex-direction: row-reverse;
+	}
+	&.animate-in {
+		.image-side,
+		.copy-side {
+			opacity: 0;
+		}
+		&.inview {
+			&[data-layout="image-copy"] {
+				.image-side {
+					animation: fadeInLeft 1s ease forwards;
+					@include MQ(S) {
+						animation: fadeIn 1s ease forwards;
+					}
+				}
+				.copy-side {
+					animation: fadeInRight 1s ease forwards;
+					@include MQ(S) {
+						animation: fadeIn 1s ease forwards;
+					}
+				}
+			}
+			&[data-layout="copy-image"] {
+				.image-side {
+					animation: fadeInRight 1s ease forwards;
+					@include MQ(S) {
+						animation: fadeIn 1s ease forwards;
+					}
+				}
+				.copy-side {
+					animation: fadeInLeft 1s ease forwards;
+					@include MQ(S) {
+						animation: fadeIn 1s ease forwards;
+					}
+				}
+			}
+		}
+	}
+}
