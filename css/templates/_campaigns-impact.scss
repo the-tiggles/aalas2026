@@ -1,0 +1,215 @@
+@use '../abstracts' as *;
+
+
+.pp-stats-grid {
+    margin: 0 0 40px;
+    .copy {
+        text-align: center;
+        width: 800px;
+        margin: 0 auto;
+        max-width: 80%;
+        @include MQ(S) {
+            width: 100%;
+        }
+    }
+    ul.stats-blurb-list {
+        display: grid;
+        list-style: none;
+        margin: 0;
+        gap: 8px;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: 30px;
+        // align-items: flex-end;
+        margin-top: -180px;
+        @include MQ(tab) {
+            margin-top: 0px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        li {
+            margin: 0;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            &:before {
+                position: absolute;
+                width: 100%;
+                height: 0%;
+                bottom: 0;
+                left: 0;
+                transition: all .44s ease;
+                content: "";
+            }
+            &.bg-blue:before {background: $blue;}
+            &.bg-blue3:before {background: $blue3}
+            
+            &.bg-green:before {background: $green;}
+            &.bg-teal{
+                color: white;
+                &:before {background: $teal; color: white;}
+            }
+            .lazybg {
+                position: absolute;
+                width: 100%;
+                height: 0%;
+                content:"";
+                left: 0;
+                bottom: 0;
+                background-size: cover;
+                background-position: center;
+                transition: all .44s ease;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(black, .42);
+                }
+                + .meta-wrapper { color: white;}
+            }
+            .icon-dna,
+            .icon-atom {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-size: 180%;
+                background-image: url('../images/icons/icon-dna.svg');
+                background-position: -125px -50px;
+                background-repeat: no-repeat;
+                opacity: 0;
+                @include MQ(tab) {
+                    background-position: -80px -60px;
+                    background-size: 400px;
+                    // height: 50%;
+                }
+            }
+            .icon-atom {
+                position: absolute;
+                background-image: url('../images/icons/icon-atom.svg');
+                background-size: contain;
+                background-position: calc(100% + 25px) 10%;
+                @include MQ(tab) {
+                    background-size: 70% 80%;
+                }
+            }
+            .meta-wrapper {
+                padding: 15px 15px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                height: 100%;
+                position: relative;
+                opacity: 0;
+                @include MQ(tab) {
+                    padding: 30px 15px 20px;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+            &:nth-child(8n + 1) {
+                grid-row: 1 / span 12;
+                grid-column: 1;
+                @include MQ(tab) {
+                    flex-basis: calc(60% - 4px);
+                    border-radius: 0 25px 25px 0;
+                    padding-top: 75px;
+                }
+            }
+            &:nth-child(8n + 2) {
+                grid-row: 13 / span 7;
+                grid-column: 1;
+                @include MQ(tab) {
+                    align-self: flex-end;
+                    flex-basis: calc(40% - 4px);
+                    border-radius: 25px 0 0 25px;
+                }
+            }
+            &:nth-child(8n + 3) {
+                grid-column: 2;
+                grid-row: 6 / span 14;
+                @include MQ(tab) {
+                    flex-basis: 100%;
+                    margin: 0 10px;
+                    padding-top: 100px;
+                }
+            }
+            &:nth-child(8n + 4) {
+                grid-column: 3;
+                grid-row: 8 / span 6;
+                @include MQ(tab) {
+                    flex-basis: calc(60% - 4px);
+                    border-radius: 0 25px 25px 0;
+                }
+                
+            }
+            &:nth-child(8n + 5) {
+                grid-column: 3;
+                grid-row: 14 / span 6;
+                @include MQ(tab) {
+                    flex-basis: calc(40% - 4px);
+                    border-radius: 25px 0 0 25px;
+                }
+            }
+            &:nth-child(8n + 6) {
+                grid-column: 4;
+                grid-row: 6 / span 14;
+                @include MQ(tab) {
+                    flex-basis: 100%;
+                    margin:  0 10px;
+                    padding-top: 100px;
+                }
+            }
+            &:nth-child(8n + 7) {
+                grid-column: 5;
+                grid-row: 13 / span 7; 
+                @include MQ(tab) {
+                    flex-basis: calc(40% - 4px);
+                    border-radius: 0 25px 25px 0;
+                    align-self: flex-start;
+                }
+            }
+            &:nth-child(8n + 8) {
+                grid-column: 5;
+                grid-row: 1 / span 12;
+                @include MQ(tab) {
+                    padding-top: 150px;
+                    flex-basis: calc(60% - 4px);
+                    border-radius: 25px 0 0 25px;
+                }
+            }
+        }
+        &.inview {
+            li {
+                @for $i from 1 through 8 {
+                    &:nth-child(#{$i}) {
+                        &:before {
+                            height: 100%;
+                            transition-delay: calc($i * (1s /9));
+                        }  
+                        .lazybg {
+                            height: 100%;
+                            transition-delay: calc($i * (1s /9));
+                        }
+                        .icon-dna {
+                            animation: fadeInDown 1s ease forwards;
+                            animation-delay: calc($i * (1s /9));
+                        }
+                        .icon-atom {
+                            animation: fadeInDown 1s ease forwards;
+                            animation-delay: calc($i * (1s /9));
+                        }
+                        .meta-wrapper {
+                            animation: fadeInUp 1s ease forwards;
+                            animation-delay: calc($i * (1s /9));
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}

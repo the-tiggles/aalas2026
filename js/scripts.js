@@ -23,6 +23,7 @@ import HOME from "./templates/home.js";
 import DEFAULT from "./templates/default.js";
 import VOLUNTEER from "./templates/volunteer.js";
 import ABOUT from "./templates/about.js";
+import CAMPAIGNS_IMPACT from "./templates/campaigns-impact.js";
 // import DEFAULT from "./templates/default.js";
 
 
@@ -49,6 +50,7 @@ function initScripts() {
 
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
     if (document.getElementsByTagName('body')[0].classList.contains('default')) { DEFAULT.init(); }
+    if (document.getElementsByTagName('body')[0].classList.contains('campaigns-impact')) { CAMPAIGNS_IMPACT.init(); }
 }
 
 docReady.init(() => {
