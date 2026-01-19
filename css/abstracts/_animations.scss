@@ -3712,6 +3712,18 @@
     }
 }
 
+@keyframes btnChevLeft {
+    0%, 50%, 100% {
+        background-position-x: calc(0% + 10px);
+    }
+    25% {
+        background-position-x: calc(0% + 5px);
+    }
+    75% {
+        background-position-x: calc(0% + 3px);
+    }
+}
+
 
 
 @keyframes btnChevCircleL {

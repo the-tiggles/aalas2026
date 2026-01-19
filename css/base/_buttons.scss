@@ -130,6 +130,31 @@
         filter: drop-shadow(0 3px 5px rgba(black, .35));
     }
 }
+.btn-chev-left {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    letter-spacing: .9px;
+    text-transform: uppercase;
+    font-size: 14px;
+    overflow: hidden;
+    font-weight: 700;
+    padding: 14px 5px 14px 30px;
+    color: black;
+    position: relative;
+    background-image: url('../images/icons/icon-chev-left.svg');
+    background-repeat: no-repeat;
+   //  line-height: 1;
+    background-position: calc(0% + 10px) center;
+    background-size: 6px;
+    transition: all .33s ease;
+    filter: drop-shadow(0 3px 5px rgba(black, 0));
+    margin: 0 15px 15px 0;
+    &:hover {
+        animation: btnChevLeft 1s ease infinite;
+        filter: drop-shadow(0 3px 5px rgba(black, .35));
+    }
+}
 
 .btn-chev-circle-l {
     font-size: 0;
