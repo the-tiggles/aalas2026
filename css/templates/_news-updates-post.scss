@@ -1,0 +1,99 @@
+@use '../abstracts' as *;
+
+
+.news-updates-post-sponsors {
+	position: relative;
+	background: $teal;
+	border-radius: 40px;
+	overflow: hidden;
+	margin: 75px 0 50px;
+	.icon-dna {
+		width: 770px;
+		height: 500px;
+		position: absolute;
+		bottom: -100px;
+		left: -150px;
+		background: url("../images/icons/icon-dna2.svg") bottom left no-repeat;
+		background-size: contain;
+		@include MQ(S) {
+			transform: scale(0.9);
+		}
+	}
+	.icon-atom {
+		position: absolute;
+		width: 400px;
+		height: 480px;
+		background: url("../images/icons/icon-atom.svg") center no-repeat;
+		background-size: contain;
+		right: -50px;
+		opacity: 0.4;
+		top: -50px;
+		@include MQ(S) {
+			width: 300px;
+			height: 280px;
+		}
+	}
+	.inner-wrapper {
+		padding: 50px 15px 80px;
+		text-align: center;
+		opacity: 0;
+		ul.sponsors-list {
+			display: grid;
+			list-style: none;
+			margin: 100px 0 25px;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 50px;
+			@include MQ(S) {
+				display: block;
+				margin: 50px 0 25px;
+			}
+			> li {
+				position: relative;
+				margin: 0;
+				&:not(:last-child) {
+					@include MQ(S) {
+						margin-bottom: 50px;
+					}
+					&:after {
+						position: absolute;
+						content: "";
+						background: linear-gradient(180deg, $green 0%, $blue 100%);
+						@include MQ(M) {
+							height: 80%;
+							width: 3px;
+							top: 50%;
+							left: calc(100% + 25px);
+							transform: translateY(-50%);
+						}
+						@include MQ(S) {
+							bottom: calc(0% - 25px);
+							width: 70%;
+							height: 3px;
+							left: 50%;
+							transform: translateX(-50%);
+						}
+					}
+				}
+				h3 {
+					margin: 0;
+				}
+				p {
+					margin-bottom: 30px;
+				}
+				> ul {
+					list-style: none;
+					margin: 0;
+					li {
+						margin: 0 0 5px;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+	}
+	&.inview {
+		.inner-wrapper {
+			animation: fadeInUp 1s ease forwards;
+		}
+	}
+}
