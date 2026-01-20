@@ -1,0 +1,199 @@
+@use '../abstracts' as *;
+
+
+.ways-to-give-bar {
+    border: 1px solid black;
+    border-radius: 40px;
+    overflow: hidden;
+    body.ways-to-give & {
+        margin: -100px 0 -40px;
+        @include MQ(S) {
+            margin-bottom: -70px;
+        }
+    }
+    @include MQ(S) {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: stretch;
+    }
+    .meta-data {
+        background: $blue3;
+        position: relative;
+        @include MQ(S) {
+            flex-basis: calc(100% - 100px);
+        }
+        ul.meta-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            list-style: none;
+            margin: 0;
+            padding: 25px 50px 25px;
+            @include MQ(S) {
+                display: flex;
+                flex-direction: column;
+                padding: 50px 15px;
+            }
+            li {
+                margin: 0;
+                text-align: center;
+                position: relative;
+                p {
+                    font-weight: 500;
+                    &.stat-title {
+                        color: $teal;
+                        
+                        // margin: 0;
+                    }
+                    &.stat-description {
+                        // font-weight: 500;
+                    }
+                }
+                h4 {
+                    font-size: 50px;
+                    margin: 0;
+                    @include MQ(S) {
+                        font-size: 40px;
+                    }
+                }
+                &:not(:last-child) {
+                    padding-bottom: 30px;
+                    margin-bottom: 30px;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        @include MQ(S) {
+                            width: 80%;
+                            height: 2px;
+                            left: 50%;
+                            bottom: 0;
+                            transform: translateX(-50%);
+                            background: linear-gradient(
+                                180deg,
+                                $blue 0%, 
+                                $green 100%
+                            )
+                        }
+                        
+                        @include MQ(M) {
+                            width: 2px;
+                            height: 80%;
+                            left: 100%;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background: linear-gradient(
+                                180deg,
+                                $blue 0%, 
+                                $green 100%
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .bar-graph {
+        height: 100px;
+        position: relative;
+        
+        @include MQ(S) {
+            flex-basis: 100px;
+            height: auto;
+            border-right: 1px solid black;
+        }
+        @include MQ(M) {
+            border-top: 1px solid black;
+        }
+        ul.notch-list {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 0;
+            list-style: none;
+            counter-reset: notch;
+            @include MQ(S) {
+                flex-direction: column-reverse;
+                align-items: flex-end;
+                height: 100%;
+            }
+            li {
+                position: relative;
+                text-align: center;
+                font-size: 0;
+                counter-increment: notch;
+                @include MQ(S) {
+                    height: 1px;
+                    width: 50px;
+                    margin: 0;
+                }
+                @include MQ(M) {
+                    width: 1px;
+                    height: 50px;
+                    margin: 0 0 50px;
+                }
+                &:before {
+                    content: counter(notch) "0%";
+                    display: block;
+                    position: absolute;
+                    line-height: 1.1;
+                    @include MQ(S) {
+                        width: 50px;
+                        font-size: 12px;
+                        bottom: 0;
+                        text-align: right;
+                        padding: 0 5px 5px 0;
+                        font-weight: 600;
+                    }
+                    @include MQ(M) {
+                        width: 80px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        top: 100%;
+                        left: 50%;
+                        text-align: center;
+                        transform: translateX(-50%);
+                    }
+                    @include MQ(L) {
+                         width: 110px;
+                        font-weight: 600;
+                        font-size: 17px;
+                    }
+                }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 80%;
+                    background: black;
+                    @include MQ(S) {
+                        right: 0;
+                    }
+                }
+                &:nth-child(even):after {
+                    @include MQ(S) {
+                        width: 60%;
+                    }
+                    @include MQ(M) {
+                        height: 60%;
+                    }
+                }
+                &:nth-child(5):before {
+                    content: counter(notch) "0% OF GOAL"
+                }
+            }
+        }
+        svg {
+            inset: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            path {
+                height: 100%;
+                position: absolute;
+            }
+        }
+    }
+}
