@@ -24,6 +24,7 @@ import DEFAULT from "./templates/default.js";
 import VOLUNTEER from "./templates/volunteer.js";
 import ABOUT from "./templates/about.js";
 import CAMPAIGNS_IMPACT from "./templates/campaigns-impact.js";
+import WAYS_TO_GIVE from "./templates/ways-to-give.js";
 // import DEFAULT from "./templates/default.js";
 
 
@@ -51,6 +52,7 @@ function initScripts() {
     if (document.getElementsByTagName('body')[0].classList.contains('home')) { HOME.init(); }
     if (document.getElementsByTagName('body')[0].classList.contains('default')) { DEFAULT.init(); }
     if (document.getElementsByTagName('body')[0].classList.contains('campaigns-impact')) { CAMPAIGNS_IMPACT.init(); }
+    if (document.getElementsByTagName('body')[0].classList.contains('ways-to-give')) { WAYS_TO_GIVE.init(); }
 }
 
 docReady.init(() => {

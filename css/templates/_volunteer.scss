@@ -136,6 +136,9 @@ body.volunteer {
 						background: #7bbe47;
 					}
 				}
+            span {
+               filter: invert(1);
+            }
 			}
 		}
 	}
