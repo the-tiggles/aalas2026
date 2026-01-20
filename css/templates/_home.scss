@@ -1,322 +1,506 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 section#home-hero {
-    .inner-wrapper {
-        width: 1400px;
-        margin: 0 auto;
-        max-width: 100%;
-        padding: 120px 15px 15px;
-    }
+	.inner-wrapper {
+		width: 1400px;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 120px 15px 15px;
+	}
 }
 
 section#home-main {
-    > .inner-wrapper {
-        width: 1400px;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0 15px;
-    }
+	> .inner-wrapper {
+		width: 1400px;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
 }
-
 
 .home-hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px 45px;
-    @include MQ(S) {
-        flex-direction: column-reverse;
-    }
-    .copy-side {
-        flex-basis: 50%;
-        opacity: 0;
-        animation: fadeInLeft 1s ease forwards;
-        @include MQ(S) {
-            text-align: center;
-        }
-    }
-    .image-side {
-        opacity: 0;
-        animation: fadeIn 1s ease .33s forwards;
-        flex-basis: 45%;
-        aspect-ratio: 1 / 1;
-        border-radius: 80px;
-        overflow: hidden;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px 45px;
+	@include MQ(S) {
+		flex-direction: column-reverse;
+	}
+	.copy-side {
+		flex-basis: 50%;
+		opacity: 0;
+		animation: fadeInLeft 1s ease forwards;
+		@include MQ(S) {
+			text-align: center;
+		}
+	}
+	.image-side {
+		opacity: 0;
+		animation: fadeIn 1s ease 0.33s forwards;
+		flex-basis: 45%;
+		aspect-ratio: 1 / 1;
+		border-radius: 80px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 }
-
-
 
 .home-our-mission {
-    position: relative;
-    padding: 150px 0 100px;
-    .background-video {
-        width: 100vw;
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        margin-left: -15px;
-        overflow: hidden;
-        @media (min-width: 1415px) {
-            margin-left: calc((100vw - 1370px) / -2);
-        }
-        &:before {
-            background: linear-gradient(180deg, #F5F5F5 0%, rgba(245, 245, 245, 0.00) 100%);
-            position: absolute;
-            left: 0;
-            top: 0;
-            content: "";
-            height: 100px;
-            width: 100%;
-        }
-        &:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 150px;
-            width: 100%;
-            background: linear-gradient(0deg, #DAE8EA 0%, rgba(218, 232, 234, 0.00) 100%);
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-    .text-content {
-        position: relative;
-        text-align: center;
-        max-width: 850px;
-        margin: 0 auto;
-    }
+	position: relative;
+	padding: 150px 0 100px;
+	.background-video {
+		width: 100vw;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		margin-left: -15px;
+		overflow: hidden;
+		@media (min-width: 1415px) {
+			margin-left: calc((100vw - 1370px) / -2);
+		}
+		&:before {
+			background: linear-gradient(
+				180deg,
+				#f5f5f5 0%,
+				rgba(245, 245, 245, 0) 100%
+			);
+			position: absolute;
+			left: 0;
+			top: 0;
+			content: "";
+			height: 100px;
+			width: 100%;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 150px;
+			width: 100%;
+			background: linear-gradient(
+				0deg,
+				#dae8ea 0%,
+				rgba(218, 232, 234, 0) 100%
+			);
+		}
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+	.text-content {
+		position: relative;
+		text-align: center;
+		max-width: 850px;
+		margin: 0 auto;
+	}
 }
 
-
 .home-programs-initiatives {
-    position: relative;
-    padding: 50px 0;
-    @include MQ(L) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        // grid-auto-rows: 350px;
-        gap: 15px;
-    }
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100%;
-        background: $blue3;
-        margin-left: -15px;
-        @media (min-width: 1415px) {
-            margin-left: calc((100vw - 1370px) / -2);
-        }
-    }
-    .title-block {
-        grid-row: 1 / span 2;
-        position: relative;
-        min-height: 250px;
-        border-radius: 40px;
-        overflow: hidden;
-        margin-bottom: 15px;
-        @include MQ(L) {
-            margin-bottom: 0;
-        }
-        .lazybg {
-            width: 100%;
-            position: absolute;
-            height: 100%;
-            left: 0;
-            top: 0;
-            background-position: center 35%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            &:before {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(
-                0deg,
-                    rgba(black, .3) 0%,
-                    rgba(black, 0) 20%,
-                    rgba(black, 0) 80%,
-                    rgba(black, .3) 100%
-                );
-            }
-        }
-        .meta {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: space-between;
-            padding: 25px 25px 35px;
-            min-height: 250px;
-            h2 {
-                text-shadow: 0 4px 12px rgba(black, .35);
-                text-align: center;
-                margin: 0;
-                @include MQ(L) {
-                    text-align: left;
-                }
-            }
-            p {
-                text-align: center;
-                margin: 0;
-            }
-        }
-    }
-    .tns-outer {
-        position: relative;
-        @include MQ(S) {
-            width: 90%;
-            margin: 0 auto;
-        }
-        @include MQ(L) {
-            grid-row: 1 / span 2;
-            grid-column: 2 / span 2;
-        }
-        .tns-ovh {
-            overflow: visible;
-            ul.programs-initiatives-list {
-                list-style: none;
-                margin: 0;
-                display: inline-flex;
-                @include MQ(M) {
-                    display: flex;
-                    gap: 15px;
-                    flex-wrap: wrap;
-                }
-                @include MQ(S) {
-                    margin-top: 80px;
-                }
-                > li {
-                    border-radius: 40px;
-                    margin: 0;
-                    background: white;
-                    padding: 25px;
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    @include MQ(M) {
-                        min-height: 350px;
-                        flex-basis: calc(50% - 7.5px);
-                    }
-                    @include MQ(S) {
-                        background: transparent;
-                        padding: 25px 40px;
-                        min-height: 340px;
-                        bottom: 0;
-                        transition: all .33s ease;
-                        &:before {
-                            position: absolute;
-                            content: "";
-                            top: 0;
-                            border-radius: 40px;
-                            width: calc(100% - 8px);
-                            height: 100%;
-                            left: 4px;
-                            background: white;
-                            z-index: -1;
-                        }
-                    }
-                    @media (max-width: 375px) {
-                        padding: 25px 20px;
-                    }
-                    p {
-                        margin: 0 0 40px;
-                        &:last-child {
-                            margin: auto 0 0;
-                            text-align: right;
-                        }
-                    }
-                    &.tns-slide-active {
-                        @include MQ(S) {
-                            bottom: 60px;
-                        }
-                    }
-                }
-            }
-        }
-        @at-root .tns-nav {
-            width: 250px;
-            max-width: calc(100% - 100px);
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            position: relative;
-            flex-wrap: wrap;
-            button {
-                transition: all .2s ease;
-                width: 15px;
-                border-radius: 20px;
-                height: 15px;
-                background: white;
-                &.tns-nav-active {
-                    width: 45px;
-                    background: $blue;
-                }
-            }
-        }
-        @at-root .tns-controls {
-            width: 350px;
-            display: flex;
-            justify-content: space-between;
-            margin: -33px auto 0;
-            max-width: 100%;
-            button {
-                font-size: 0;
-                width: 45px;
-                height: 45px;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 15px;
-                &[data-controls="prev"] {
-                    background-image: url('../images/icons/icon-arrow-left.svg');
-                }
-                &[data-controls="next"] {
-                    background-image: url('../images/icons/icon-arrow-right.svg');
-                }
-            }
-        }
-        
-        
-    }
-    &.animate-in {
-        .title-block {
+	position: relative;
+	padding: 50px 0;
+	@include MQ(L) {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		// grid-auto-rows: 350px;
+		gap: 15px;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		height: 100%;
+		background: $blue3;
+		margin-left: -15px;
+		@media (min-width: 1415px) {
+			margin-left: calc((100vw - 1370px) / -2);
+		}
+	}
+	.title-block {
+		grid-row: 1 / span 2;
+		position: relative;
+		min-height: 250px;
+		border-radius: 40px;
+		overflow: hidden;
+		margin-bottom: 15px;
+		@include MQ(L) {
+			margin-bottom: 0;
+		}
+		.lazybg {
+			width: 100%;
+			position: absolute;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background-position: center 35%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			&:before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					0deg,
+					rgba(black, 0.3) 0%,
+					rgba(black, 0) 20%,
+					rgba(black, 0) 80%,
+					rgba(black, 0.3) 100%
+				);
+			}
+		}
+		.meta {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			justify-content: space-between;
+			padding: 25px 25px 35px;
+			min-height: 250px;
+			h2 {
+				text-shadow: 0 4px 12px rgba(black, 0.35);
+				text-align: center;
+				margin: 0;
+				@include MQ(L) {
+					text-align: left;
+				}
+			}
+			p {
+				text-align: center;
+				margin: 0;
+			}
+		}
+	}
+	.tns-outer {
+		position: relative;
+		@include MQ(S) {
+			width: 90%;
+			margin: 0 auto;
+		}
+		@include MQ(L) {
+			grid-row: 1 / span 2;
+			grid-column: 2 / span 2;
+		}
+		.tns-ovh {
+			overflow: visible;
+			ul.programs-initiatives-list {
+				list-style: none;
+				margin: 0;
+				display: inline-flex;
+				@include MQ(M) {
+					display: flex;
+					gap: 15px;
+					flex-wrap: wrap;
+				}
+				@include MQ(S) {
+					margin-top: 80px;
+				}
+				> li {
+					border-radius: 40px;
+					margin: 0;
+					background: white;
+					padding: 25px;
+					display: flex;
+					flex-direction: column;
+					position: relative;
+					@include MQ(M) {
+						min-height: 350px;
+						flex-basis: calc(50% - 7.5px);
+					}
+					@include MQ(S) {
+						background: transparent;
+						padding: 25px 40px;
+						min-height: 340px;
+						bottom: 0;
+						transition: all 0.33s ease;
+						&:before {
+							position: absolute;
+							content: "";
+							top: 0;
+							border-radius: 40px;
+							width: calc(100% - 8px);
+							height: 100%;
+							left: 4px;
+							background: white;
+							z-index: -1;
+						}
+					}
+					@media (max-width: 375px) {
+						padding: 25px 20px;
+					}
+					p {
+						margin: 0 0 40px;
+						&:last-child {
+							margin: auto 0 0;
+							text-align: right;
+						}
+					}
+					&.tns-slide-active {
+						@include MQ(S) {
+							bottom: 60px;
+						}
+					}
+				}
+			}
+		}
+		@at-root .tns-nav {
+			width: 250px;
+			max-width: calc(100% - 100px);
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+			position: relative;
+			flex-wrap: wrap;
+			button {
+				transition: all 0.2s ease;
+				width: 15px;
+				border-radius: 20px;
+				height: 15px;
+				background: white;
+				&.tns-nav-active {
+					width: 45px;
+					background: $blue;
+				}
+			}
+		}
+		@at-root .tns-controls {
+			width: 350px;
+			display: flex;
+			justify-content: space-between;
+			margin: -33px auto 0;
+			max-width: 100%;
+			button {
+				font-size: 0;
+				width: 45px;
+				height: 45px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 15px;
+				&[data-controls="prev"] {
+					background-image: url("../images/icons/icon-arrow-left.svg");
+				}
+				&[data-controls="next"] {
+					background-image: url("../images/icons/icon-arrow-right.svg");
+				}
+			}
+		}
+	}
+	&.animate-in {
+		.title-block {
+			opacity: 0;
+			z-index: 1;
+		}
+		ul li {
+			opacity: 0;
+		}
+		&.inview {
+			.title-block {
+				animation: fadeIn 1s ease forwards;
+			}
+			ul li {
+				animation: fadeIn 1s ease forwards;
+				@include MQ(M) {
+					animation: fadeInLeft 1s ease forwards;
+					@for $i from 1 through 4 {
+						&:nth-child(#{$i}) {
+							animation-delay: calc($i * (1s / 6));
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.pp-resource-links {
+	margin: 75px 0 50px;
+	.section-copy {
+		opacity: 0;
+	}
+	ul.resource-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
+		list-style: none;
+		width: 1200px;
+		max-width: 100%;
+		margin: 0 auto;
+		@include MQ(S) {
+			grid-template-columns: 1fr;
+		}
+		li {
+			margin: 0;
+			opacity: 0;
+			a {
+				background: white;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				text-decoration: none;
+				font-size: 18px;
+				padding: 12px 15px 12px 25px;
+				border-radius: 30px;
+				color: black;
+				font-weight: 600;
+				box-shadow: 0 0 0 0 rgba(black, 0);
+				transition: all 0.2s ease;
+				&:hover {
+					box-shadow: 0 10px 15px -4px rgba(black, 0.15);
+					.btn-chev-circle-r {
+						&:before {
+							animation: btnChevCircleR 1s ease infinite;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.inview {
+		.section-copy {
+			animation: fadeIn 1s ease forwards;
+		}
+		ul.resource-list {
+			li {
+				animation: fadeInUp 1s ease forwards;
+				@for $i from 1 through 10 {
+					&:nth-child(#{$i}) {
+						animation-delay: calc($i * (1s /15));
+					}
+				}
+			}
+		}
+	}
+}
+
+.pp-home-updates {
+	margin: 125px 0 50px;
+	.section-copy {
+      opacity: 0;
+		margin-bottom: 25px;
+		@include MQ(M) {
+			display: grid;
+			align-items: flex-end;
+			grid-template-columns: 1fr 160px;
+			gap: 25px;
+		}
+		a {
+			margin: 0;
+		}
+	}
+	ul.updates-list {
+		display: grid;
+		list-style: none;
+		gap: 15px 40px;
+		grid-template-columns: repeat(12, 1fr);
+		@include MQ(S) {
+			grid-template-columns: 1fr;
+		}
+		> li {
+			margin: 0;
+			&:nth-child(1) {
             opacity: 0;
             z-index: 1;
-        }
-        ul li {
-            opacity: 0;
-        }
-        &.inview {
-            .title-block {
-                animation: fadeIn 1s ease forwards;
+				@include MQ(S) {
+					background: white;
+					border-radius: 40px 40px 25px 25px;
+					padding: 0 20px 20px;
+					overflow: hidden;
+				}
+				@include MQ(M) {
+					grid-column: 1 / span 7;
+					> *:not(.image-link) {
+						padding-left: 25px;
+					}
+				}
+			}
+			&:not(:first-child) {
+				@include MQ(M) {
+					grid-column: 8 / span 5;
+				}
+			}
+			ul.simple-list {
+				list-style: none;
+				margin: 0;
+				li {
+               opacity: 0;
+					margin: 0 0 25px;
+					padding: 0 0 10px;
+					&:not(:last-child) {
+						border-bottom: 1px solid black;
+					}
+				}
+			}
+		}
+		li {
+			.image-link {
+				display: block;
+				@include MQ(S) {
+					margin: 0 -20px;
+				}
+				img {
+					width: 100%;
+					aspect-ratio: 782 / 458;
+					border-radius: 40px;
+				}
+			}
+			.post-date {
+				margin: 10px 0 0;
+				color: $teal;
+				text-transform: uppercase;
+				font-weight: 500;
+			}
+			h6 {
+				margin: 0 0 5px;
+				a {
+					text-decoration: none;
+					color: black;
+					transition: all 0.2s ease;
+					font-weight: 500;
+					&:hover {
+						color: $teal;
+					}
+				}
+			}
+			p {
+				margin: 0;
+			}
+			.btn-chev-right {
+				margin: 0;
+				padding-left: 0;
+			}
+		}
+	}
+   &.inview {
+      .section-copy {
+         animation: fadeInUp 1s ease forwards;
+      }
+      ul.updates-list {
+         > li:nth-child(1) {
+            animation: fadeIn 1s ease .1s forwards;
+         }
+         > li {
+            > ul {
+               > li {
+                  animation: fadeInLeft 1s ease forwards;
+                  @for $i from 1 through 10 {
+                     &:nth-child(#{$i}) {
+                        animation-delay: calc($i * (1s / 6) + 0.2s);
+                     }
+                  }
+               }
             }
-            ul li {
-                animation: fadeIn 1s ease forwards;
-                @include MQ(M) {
-                    animation: fadeInLeft 1s ease forwards;
-                    @for $i from 1 through 4 {
-                        &:nth-child(#{$i}) {
-                            animation-delay: calc($i * (1s /6));
-                        }
-                    }
-                }
-            }
-        }
-    }
+         }
+      }
+   }
 }
