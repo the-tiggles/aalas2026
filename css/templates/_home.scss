@@ -384,7 +384,7 @@ section#home-main {
 }
 
 .pp-home-updates {
-	margin: 125px 0 50px;
+	margin: 100px 0 50px;
 	.section-copy {
       opacity: 0;
 		margin-bottom: 25px;
@@ -399,6 +399,7 @@ section#home-main {
 		}
 	}
 	ul.updates-list {
+      margin: 0;
 		display: grid;
 		list-style: none;
 		gap: 15px 40px;
@@ -439,6 +440,9 @@ section#home-main {
 					&:not(:last-child) {
 						border-bottom: 1px solid black;
 					}
+               @include MQ(S) {
+                  border-bottom: 1px solid black;
+               }
 				}
 			}
 		}
