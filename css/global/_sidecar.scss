@@ -31,4 +31,84 @@
       top: 80px;
       pointer-events: inherit;
    }
+   ul#sidecar-nav {
+      margin: 0;
+      max-height: 100%;
+      overflow-y: auto;
+      list-style: none;
+      padding: 25px 3px;
+       width: 100%;
+      .btn-expand {
+         position: absolute;
+         display: inline-block;
+         width: 40px;
+          right: 10px;
+          top: 0;
+         height: 40px;
+         &:before,
+         &:after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 60%;
+            background: black;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            transition: all .33s ease;
+         }
+         &:after {
+            transform: translate(-50%, -50%) rotate(90deg);
+         }
+      }
+      li {
+         display: flex;
+         
+         margin: 0;
+         position: relative;
+          width: 100%;
+         &:not(:last-child) {
+            border-bottom: 1px solid #cecece;
+         }
+         &.item--has-children {
+            display: grid;
+            grid-template-rows: min-content 0fr;
+            transition: grid-template-rows .33s ease-in-out;
+         }
+         > a:not(.btn-expand) {
+            min-height: 40px;
+            color: black;
+            padding: 10px 55px 10px 15px;
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 700;
+            width: 100%;
+         }
+         > ul {
+             margin: 0;
+            overflow: hidden;
+            height: 0px;
+            interpolate-size: allow-keywords;
+            transition: height .33s ease-in-out;
+            overflow-y: clip;
+             background: rgba($teal, .15);
+            > li {
+               position: relative;
+            }
+         }
+         &.active {
+            grid-template-rows: min-content 1fr;
+            > ul {
+               height: auto;
+            }
+             > .btn-expand {
+                 &:before {
+                     height: 0;
+                 }
+             }
+         }
+      }
+   }
 }
