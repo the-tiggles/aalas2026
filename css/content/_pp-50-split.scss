@@ -4,7 +4,9 @@
 .pp-50-split {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: stretch;
+   position: relative;
+   margin: 40px 0;
 	@include MQ(S) {
 		flex-direction: column-reverse !important;
 		gap: 25px;
@@ -13,9 +15,20 @@
 		flex-basis: 48%;
 		border-radius: 40px;
 		overflow: hidden;
+      position: relative;
+      min-height: 100%;
+      height: auto;
 		@include MQ(S) {
 			flex-basis: 100%;
+         min-height: 250px;
 		}
+      img {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: center 35%;
+      }
 	}
 	.copy-side {
 		flex-basis: 48%;
@@ -23,6 +36,9 @@
 			flex-basis: 100%;
 			width: 100%;
 		}
+      @include MQ(M) {
+         padding: 40px 0 25px;
+      }
 	}
 	&[data-layout="copy-image"] {
 		flex-direction: row-reverse;

@@ -2,6 +2,7 @@ const HELPER = {
    init: function () {
       this.lazyIMGs();
       this.embedResponsively();
+      this.promoArea();
    },
    lazyIMGs: function () {
 
@@ -64,6 +65,83 @@ const HELPER = {
          // Move iframe inside wrapper
          wrapper.appendChild(iframe);
       });
+
+   },
+   promoArea: function() {
+      (() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const elements = document.querySelectorAll('.parallax-bg');
+  if (!elements.length) return;
+
+  const state = new Map();
+  let ticking = false;
+
+  // TUNABLE VALUES
+  const PARALLAX_PX = 45;
+  const SCALE_MAX = 1.15;
+  const BLUR_MAX = 10; // blur increases downward
+
+  const update = () => {
+    state.forEach((data, el) => {
+      if (!data.inView) return;
+
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Progress increases as user scrolls DOWN
+      const progress =
+        (viewportHeight - rect.top) / (viewportHeight + rect.height);
+
+      const clamped = Math.max(0, Math.min(1, progress));
+
+      // Ease
+      const eased = clamped * clamped;
+
+      // Effects
+      const bgOffset = eased * PARALLAX_PX;
+      const scale = 1 + eased * (SCALE_MAX - 1);
+      const blur = eased * BLUR_MAX;
+
+      el.style.backgroundPosition = `center calc(50% + ${bgOffset}px)`;
+      el.style.transform = `scale(${scale})`;
+      el.style.filter = `blur(${blur}px)`;
+    });
+
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      const data = state.get(el);
+      if (!data) return;
+
+      data.inView = entry.isIntersecting;
+
+      if (!entry.isIntersecting) {
+        el.style.backgroundPosition = 'center 50%';
+        el.style.transform = 'scale(1)';
+        el.style.filter = 'blur(0px)';
+      }
+    });
+  });
+
+  elements.forEach(el => {
+    state.set(el, { inView: false });
+    observer.observe(el);
+  });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
 
    }
 
