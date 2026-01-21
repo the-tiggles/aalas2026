@@ -273,6 +273,32 @@
 }
 
 
+.btn-white {
+    display: inline-block;
+    position: relative;
+    padding: 14px 30px;
+    overflow: hidden;
+    background: white;
+    text-decoration: none;
+    border-radius: 2px;
+    color: black;
+    z-index: 1;
+    font-size: 15px;
+    transition: all .33s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .4px;
+    border: 1px solid rgba(black, 0);
+    margin: 0 15px 15px 0;
+    box-shadow: 0 0 0 0 rgba(black, 0);
+    &:hover {
+        border: 1px solid rgba(black, 1);
+        box-shadow: 0 2px 5px -1px rgba(black, .3);
+    }
+}
+
+
 .button {
   @include button-styles;
 

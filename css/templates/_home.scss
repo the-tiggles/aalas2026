@@ -508,3 +508,150 @@ section#home-main {
       }
    }
 }
+
+
+
+.research-stats {
+    margin: 50px 0 75px;
+    .research-stats-header {
+        background: #1BAFC1;
+        border-radius: 59px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            opacity: .3;
+        }
+        .inner-wrapper {
+            padding: 80px 150px 100px;
+            color: #000;
+            position: relative;
+            @include MQ(S) {
+                padding: 50px 15px 100px;
+            }
+            p {
+                font-size: 20px;
+            }
+            
+        }
+    }
+    .tns-outer {
+        width: 90%;
+        margin: -75px auto 0;
+        .tns-ovh {
+            overflow: visible;
+            .tns-inner {
+                ul.cards-list {
+                    display: inline-flex;
+                    list-style: none;
+                    @include MQ(M) {
+                        grid-template-columns: repeat(2, 1fr);
+                        display: grid;
+                    }
+                    @include MQ(L) {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                    li {
+                        overflow: hidden;
+                        padding: 50px 25px 60px;
+                        margin: 0;
+                        text-align: center;
+                        position: relative;
+                        z-index: 1;
+                        @include MQ(M) {
+                            opacity: 0;
+                        }
+                        
+                        .image-wrapper {
+                            position: absolute;
+                            width: calc(100% - 10px);
+                            height: calc(100% - 10px);
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: -1;
+                            border-radius: 25px;
+                            overflow: hidden;
+                            transition: all .33s ease;
+                            &:before {
+                                backdrop-filter: blur(5px);
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(white, .5);
+                                position: absolute;
+                                content: "";
+                                left: 0;
+                                top: 0;
+                                transition: all .33s ease;
+                            }
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        }
+                        .stat-title {
+                            opacity: 1;
+                            transition: all .2s ease;
+                            bottom: 0;
+                            position: relative;
+                        }
+                        p {
+                            opacity: 1;
+                            transition: all .2s ease;
+                            position: relative;
+                            bottom: 0;
+                            font-weight: 500;
+                            font-size: 19px;
+                        }
+                        &:hover {
+                            .image-wrapper {
+                                width: 100%;
+                                height: 100%;
+                                &:before {
+                                    backdrop-filter: blur(0px);
+                                    background: rgba(white, .1);
+                                }
+                            }
+                            .stat-title {
+                                opacity: .3;
+                                bottom: -5px;
+                            }
+                            p {
+                                opacity: .3;
+                                bottom: -5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .tns-nav {
+            button:not(.tns-nav-active) {
+                background: rgba(black, .3);
+            }
+        }
+    }
+    &.inview {
+        .research-stats-header {
+            animation: fadeIn 1s ease forwards;
+        }
+        @include MQ(M) {
+            ul.cards-list {
+                li {
+                    animation: fadeInDown 1s ease forwards;
+                    @for $i from 1 through 4 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: calc($i * (1s /15));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
