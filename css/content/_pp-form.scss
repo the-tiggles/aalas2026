@@ -1,0 +1,83 @@
+@use "../abstracts" as *;
+
+.pp-form {
+   margin: 75px 0 40px;
+	.section-copy {
+		margin-bottom: 45px;
+	}
+	.form-wrapper {
+		display: grid;
+		gap: 25px 20px;
+		@include MQ(M) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 35px 20px;
+		}
+		.form-field {
+			@include MQ(S) {
+				grid-column: span 2;
+			}
+			&.checkbox-fields,
+			&.textarea {
+				grid-column: 1 / span 2;
+			}
+			&.checkbox-fields {
+				@include MQ(M) {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					gap: 15px;
+				}
+				@include MQ(L) {
+					grid-template-columns: repeat(5, 1fr);
+				}
+				p {
+					margin: 0;
+					@include MQ(M) {
+						grid-column: 1 / span 3;
+					}
+					@include MQ(L) {
+						grid-column: 1 / span 5;
+					}
+				}
+				input[type="checkbox"] {
+					width: 23px;
+					height: 23px;
+				}
+			}
+			> label {
+				font-size: 0;
+				position: absolute;
+			}
+			> input,
+			select,
+			textarea {
+				background: white;
+				border-radius: 25px;
+				padding: 9px 15px;
+				border: 1px solid black;
+				width: 100%;
+				outline: none;
+				min-height: 45px;
+				&::placeholder {
+					opacity: 0.5;
+				}
+			}
+			textarea {
+				min-height: 14rem;
+				padding: 15px 25px;
+			}
+			.checkbox-group {
+				margin-bottom: 10px;
+				display: flex;
+				gap: 13px;
+				align-items: center;
+			}
+		}
+		.form-actions {
+			grid-column: 1 / span 2;
+			text-align: center;
+			button {
+				margin: 0;
+			}
+		}
+	}
+}
