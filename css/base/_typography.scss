@@ -31,7 +31,7 @@ h1, .h1 {
 h2, .h2 {
     font-weight: 600;
     font-size: 32px;
-    margin: 0 0 40px;
+    margin: 0 0 25px;
     line-height: 1.2;
     @include MQ(M) {
         font-size: 42px;
