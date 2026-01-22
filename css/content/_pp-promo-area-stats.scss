@@ -1,0 +1,214 @@
+@use "../abstracts" as *;
+
+.pp-promo-area-stats {
+	position: relative;
+	background: black;
+	border-radius: 40px;
+	overflow: hidden;
+	padding: 20px 20px 20px 25px;
+	display: flex;
+	justify-content: space-between;
+	gap: 25px;
+	@include MQ(S) {
+		padding: 15px;
+		flex-direction: column;
+	}
+	.lazybg {
+		position: absolute;
+		left: 0%;
+		top: 0%;
+		width: 100%;
+		height: 100%;
+		content: "";
+		background-size: cover;
+		background-position: center;
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0.5;
+			background: linear-gradient(0deg, rgba(black, 0) 0%, rgba(black, 1) 100%);
+		}
+	}
+	h2 {
+		position: relative;
+		margin-top: 25px;
+		padding-left: 15px;
+		@include MQ(M) {
+			flex-basis: 40%;
+			padding-left: 25px;
+		}
+	}
+	.inner-wrapper {
+		background: rgba(black, 0.6);
+		position: relative;
+		padding: 25px;
+		flex-basis: 55%;
+		border-radius: 40px;
+		backdrop-filter: blur(30px);
+		ul.stats-grid {
+			list-style: none;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			text-align: center;
+			gap: 0;
+			margin: 0;
+			@include MQ(S) {
+				grid-template-columns: 1fr;
+				gap: 10px;
+			}
+			li {
+				margin: 0;
+				padding: 45px 45px;
+				position: relative;
+				@include MQ(S) {
+					padding: 20px 25px;
+					&:not(:last-child) {
+						&:after {
+							content: "";
+							position: absolute;
+							top: 100%;
+							left: 50%;
+							transform: translateX(-50%);
+							height: 2px;
+							width: 60%;
+							background: linear-gradient(270deg, $blue 0%, $green 100%);
+						}
+					}
+				}
+				@include MQ(M) {
+					&:nth-child(4n + 1) {
+						&:before {
+							position: absolute;
+							top: 0;
+							left: 100%;
+							height: 100%;
+							width: 2px;
+							transition: all 0.33s ease;
+							content: "";
+							background: linear-gradient(180deg, $green 0%, $blue 100%);
+						}
+						&:after {
+							position: absolute;
+							top: 100%;
+							left: 0%;
+							transition: all 0.33s ease;
+							height: 2px;
+							width: 100%;
+							content: "";
+							background: linear-gradient(90deg, $green 0%, $blue 100%);
+						}
+					}
+					&:nth-child(4n + 4) {
+						&:before {
+							position: absolute;
+							bottom: 0;
+							right: calc(100% - 2px);
+							height: 100%;
+							width: 2px;
+							transition: all 0.33s ease;
+							content: "";
+							background: linear-gradient(0deg, $green 0%, $blue 100%);
+						}
+						&:after {
+							position: absolute;
+							bottom: calc(100% - 2px);
+							right: 0%;
+							height: 2px;
+							width: 100%;
+							content: "";
+							transition: all 0.33s ease;
+							background: linear-gradient(270deg, $green 0%, $blue 100%);
+						}
+					}
+				}
+            h3 {
+               @include MQ(S) {
+                  font-size: 30px;
+               }
+               @include MQ(M) {
+                  font-size: 38px;
+               }
+               @include MQ(L) {
+                  font-size: 60px;
+               }
+            }
+			}
+		}
+	}
+	&[class*="animate-in"] {
+		h2 {
+			opacity: 0;
+		}
+		.inner-wrapper {
+			opacity: 0;
+			ul {
+				li {
+					h3,
+					p {
+						opacity: 0;
+					}
+					@include MQ(M) {
+						&:nth-child(4n + 1) {
+							&:before {
+								height: 0;
+							}
+							&:after {
+								width: 0;
+							}
+						}
+						&:nth-child(4n + 4) {
+							&:before {
+								height: 0;
+							}
+							&:after {
+								width: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+		&.inview {
+			h2 {
+				animation: fadeInLeft 1s ease forwards;
+			}
+			.inner-wrapper {
+				animation: fadeIn 1s ease forwards;
+				li {
+					@for $i from 1 through 4 {
+						&:nth-child(#{$i}) {
+							h3 {
+								animation: fadeInUp 1s ease forwards;
+								animation-delay: $i * (1s /6);
+							}
+							p {
+								animation: fadeIn 1s ease forwards;
+								animation-delay: $i * (1s /6);
+							}
+						}
+					}
+					@include MQ(M) {
+						&:nth-child(4n + 1) {
+							&:before {
+								height: 100%;
+							}
+							&:after {
+								width: 100%;
+							}
+						}
+						&:nth-child(4n + 4) {
+							&:before {
+								height: 100%;
+							}
+							&:after {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
