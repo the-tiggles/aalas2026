@@ -42,6 +42,7 @@
             padding: 0 25px;
             background: white;
             border-radius: 40px;
+            position: relative;
         }
         &.active {
             grid-template-rows: min-content 1fr;
