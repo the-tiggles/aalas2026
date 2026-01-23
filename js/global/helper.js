@@ -151,7 +151,9 @@ const HELPER = {
 
    },
    ppQuote: function() {
-      particlesJS('particles-js',
+      var theParticles = document.querySelectorAll('.pp-quote #particles-js');
+      if (theParticles) {
+         particlesJS('particles-js',
 
          {
             "particles": {
@@ -265,6 +267,9 @@ const HELPER = {
          }
 
       );
+
+      }
+      
    },
 
    ppPromoAreaStats: function() {
