@@ -1,4 +1,5 @@
 import { CountUp } from 'countup.js';
+import { tns } from 'tiny-slider';
 
 const HELPER = {
    init: function () {
@@ -347,6 +348,26 @@ const HELPER = {
          selectedTab.focus();
          }
 
+         var allTabLists = document.querySelectorAll('ul.tab-list');
+
+         allTabLists.forEach(tabList => {
+            tns({
+               container: tabList,
+               items: 2,
+               slideBy: 'page',
+               controls: true,
+               nav: false,
+               loop: false,
+               gutter: 15,
+               slideBy: 'page',
+               controlsPosition: 'top',
+               responsive: {
+                  768: {
+                     disable: true,
+                  }
+               }
+            })
+         });
 
    }
 

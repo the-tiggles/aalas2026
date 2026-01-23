@@ -1,0 +1,141 @@
+@use "../abstracts" as *;
+
+.pp-tabbed-content {
+	@include MQ(S) {
+      margin: 40px 0 50px;
+   }
+   @include MQ(M) {
+      width: 1100px;
+      max-width: 100%;
+      margin: 100px auto 150px;
+   }
+	ul.tab-list {
+		background: white;
+		display: inline-flex;
+		box-shadow: 0 10px 15px -4px rgba(black, 0.08);
+	}
+	.tns-outer {
+		position: relative;
+		@include MQ(S) {
+			// width: calc(100% - 30px);
+			// margin-left: -15px;
+		}
+		.tns-ovh {
+			overflow: visible;
+			.tns-inner {
+				ul.tab-list {
+					list-style: none;
+					margin: 0;
+					border-radius: 25px;
+					align-items: center;
+					@include MQ(S) {
+						padding: 5px;
+						align-items: stretch;
+					}
+					@include MQ(M) {
+						padding: 9px 0;
+						width: 100%;
+						gap: 25px;
+						justify-content: space-evenly;
+					}
+					li {
+						margin: 0;
+						@include MQ(S) {
+							padding: 0 15px;
+						}
+						a {
+							text-align: center;
+							padding: 15px 30px;
+							text-decoration: none;
+							color: black;
+							font-weight: 600;
+							display: block;
+							position: relative;
+							font-size: 20px;
+							overflow: hidden;
+							z-index: 2;
+							border-radius: 40px;
+							line-height: 1.3;
+							@include MQ(S) {
+								height: 100%;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								padding: 8px 25px;
+							}
+							@include MQ(M) {
+								max-width: 220px;
+							}
+							&:before {
+								position: absolute;
+								content: "";
+								width: 0%;
+								height: 0%;
+								z-index: -1;
+								border-radius: 40px;
+								left: 50%;
+								top: 50%;
+								transform: translate(-50%, -50%);
+								background: linear-gradient(
+									90deg,
+									rgba(123, 190, 71, 0.6) 0%,
+									rgba(27, 175, 193, 0.6) 100%
+								);
+								transition: all 0.33s ease;
+							}
+							&[aria-selected="true"] {
+								&:before {
+									width: 100%;
+									height: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ul.tab-panel-list {
+		list-style: none;
+		margin: 0;
+		> li {
+			margin: 35px 0 15px;
+		}
+	}
+	.tns-controls {
+		// z-index: 2;
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		transform: translateY(-50%);
+		width: calc(100% + 50px);
+		margin: 0;
+		left: -25px;
+		z-index: 1;
+		height: 0;
+		max-width: 200%;
+		// margin-left: -15px;
+		button {
+			position: relative;
+			z-index: 1;
+			pointer-events: inherit;
+			bottom: 20px;
+			filter: drop-shadow(0 3px 5px rgba(black, 0.1));
+			// bottom: -30%;
+			transform: scale(1);
+			transition: all 0.1s ease;
+			background-size: 12px;
+			&[data-controls="prev"] {
+				background-image: url("../images/icons/icon-chev-left.svg");
+			}
+			&[data-controls="next"] {
+				background-image: url("../images/icons/icon-chev-right.svg");
+			}
+			&:active {
+				transform: scale(1);
+				filter: drop-shadow(0 2px 3px rgba(black, 0.5));
+			}
+		}
+	}
+}

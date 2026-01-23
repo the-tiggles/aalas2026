@@ -41,3 +41,30 @@ body.locked {
 .content-block {
 //   margin-bottom: clamp-min-max(4, 6.4, $bp-xs, $bp-lg);
 }
+
+
+.flex-split {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px 25px;
+    @include MQ(S) {
+        flex-direction: column-reverse;
+    }
+    .image-side {
+        flex-basis: 45%;
+        overflow: hidden;
+        border-radius: 40px;
+        @include MQ(S) {
+            flex-basis: 100%;
+            min-height: 200px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .copy-side {
+        flex-basis: 50%;
+    }
+}
