@@ -7,6 +7,7 @@ const HELPER = {
       this.promoArea();
       this.ppQuote();
       this.ppPromoAreaStats();
+      this.ppTabbedContent();
    },
    lazyIMGs: function () {
 
@@ -307,6 +308,46 @@ const HELPER = {
       // bg 
 
       
+   },
+   ppTabbedContent: function() {
+      const tabLists = document.querySelectorAll('[role="tablist"]');
+
+         tabLists.forEach(tabList => {
+         const tabs = tabList.querySelectorAll('[role="tab"]');
+
+         tabs.forEach(tab => {
+            tab.addEventListener('click', e => {
+               e.preventDefault();
+               activateTab(tab, tabs);
+            });
+         });
+         });
+
+         function activateTab(selectedTab, tabs) {
+         tabs.forEach(tab => {
+            const panel = document.getElementById(
+               tab.getAttribute('aria-controls')
+            );
+
+            tab.setAttribute(
+               'aria-selected',
+               tab === selectedTab ? 'true' : 'false'
+            );
+
+            tab.setAttribute(
+               'tabindex',
+               tab === selectedTab ? '0' : '-1'
+            );
+
+            if (panel) {
+               panel.hidden = tab !== selectedTab;
+            }
+         });
+
+         selectedTab.focus();
+         }
+
+
    }
 
 }
