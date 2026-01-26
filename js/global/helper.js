@@ -1,5 +1,11 @@
 import { CountUp } from 'countup.js';
 import { tns } from 'tiny-slider';
+import Swiper from 'swiper';
+import {Thumbs, Navigation} from 'swiper/modules';
+import GLightbox  from 'glightbox';
+Swiper.use([Thumbs, Navigation]);
+
+
 
 const HELPER = {
    init: function () {
@@ -9,6 +15,7 @@ const HELPER = {
       this.ppQuote();
       this.ppPromoAreaStats();
       this.ppTabbedContent();
+      this.ppImageGallerySlider();
    },
    lazyIMGs: function () {
 
@@ -364,7 +371,6 @@ const HELPER = {
                nav: false,
                loop: false,
                gutter: 15,
-               slideBy: 'page',
                controlsPosition: 'top',
                responsive: {
                   768: {
@@ -374,6 +380,65 @@ const HELPER = {
             })
          });
 
+   },
+   ppImageGallerySlider: function() {
+      var ppImageGallery = document.querySelectorAll('.pp-image-gallery-slider');
+
+      if (ppImageGallery) {
+            
+         ppImageGallery.forEach(slider => {
+            const thumbEl = slider.querySelector('.thumb-wrapper');
+            const mainEl = slider.querySelector('.mySwiper2');
+
+            console.log('we have a image gal slider');
+
+            // for the thumbnails
+            const thumbSwiper = new Swiper(thumbEl, {
+               loop: false,
+               slidesPerView: 9,
+               grabCursor: true,
+               mousewheel: false,
+               spaceBetween: 20,
+               freeMode: false,
+               watchSlidesProgress: true,
+               grid: {
+                  rows: 2
+               }
+            });
+
+            // for the big Picture
+            const mainSwiper = new Swiper(mainEl, {
+               loop: false,
+               spaceBetween: 20,
+               slidesPerView: 1,
+               grabCursor: true,
+               slidesPerView: 1,
+               height: 200,
+               centeredSlides: true,
+               autoHeight: false,
+               navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+               },
+               thumbs: {
+                  swiper: thumbSwiper,
+               },
+            });
+
+            mainSwiper.on('slideChange', function() {
+               console.log('we movin');
+               // console.log(mainSwiper);
+               let indexAlt = slider.querySelector('ul.big-picture-slider li:nth-child(' + (mainSwiper.realIndex + 1) + ') img').getAttribute('alt');
+               console.log(slider.querySelector('ul.big-picture-slider li:nth-child(1) img').getAttribute('alt'));
+               let metaInfo = slider.querySelector('.swiper-description');
+
+               metaInfo.innerHTML = indexAlt
+            })
+         });
+
+         const lightbox = GLightbox();
+         
+      }
    }
 
 }

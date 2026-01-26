@@ -1,0 +1,128 @@
+@use "../abstracts" as *;
+
+.pp-image-gallery-slider {
+	position: relative;
+   margin: 150px 0 50px;
+   @include MQ(S) {
+      margin: 100px 0 40px;
+   }
+	.big-picture-wrapper {
+		overflow: visible;
+		height: 550px;
+		max-width: calc(100% - 80px);
+		ul.big-picture-slider {
+			margin: 0;
+
+			li {
+				margin: 0;
+				// width: inherit;
+				text-align: center;
+				// background: #444;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-shrink: 0;
+				a {
+					width: inherit;
+				}
+				img {
+					display: block;
+					height: 550px;
+					width: 100%;
+					object-fit: cover;
+               border-radius: 25px;
+				}
+			}
+		}
+	}
+	.meta-wrap {
+		display: flex;
+		@include MQ(tab) {
+			flex-direction: column-reverse;
+		}
+		.thumb-wrapper {
+			flex-basis: calc(100% - 400px);
+			padding: 10px 0;
+			height: 100%;
+			@include MQ(tab) {
+				flex-basis: 100%;
+				width: 100%;
+			}
+			ul.swiper-pagination-list {
+				margin: 0;
+				@include MQ(tab) {
+					display: flex;
+					width: 100%;
+					flex-wrap: nowrap;
+					background: rgba(#7bbe47, 0.2);
+					width: 100%;
+					flex-basis: 100%;
+					border-radius: 5px;
+					max-width: calc(100% - 100px);
+					margin: 0 auto;
+				}
+				li {
+					cursor: pointer;
+					transition: all 0.2s ease;
+					margin: 0;
+					padding: 5px;
+					width: 75px;
+					height: 75px;
+					@include MQ(tab) {
+						width: inherit !important;
+						flex-shrink: 1;
+						margin: 0 !important;
+						padding: 0;
+						height: 4px;
+					}
+					img {
+						border: 2px solid rgba($teal, 0);
+						border-radius: 9px;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						@include MQ(tab) {
+							display: none;
+						}
+					}
+					&.swiper-slide-thumb-active {
+						@include MQ(tab) {
+							background: $teal;
+							border-radius: 5px;
+						}
+						img {
+							border: 2px solid $teal;
+						}
+					}
+				}
+			}
+		}
+		.swiper-description {
+			flex-basis: 400px;
+			padding: 25px 0 15px;
+			@include MQ(tab) {
+				margin-bottom: 25px;
+				flex-basis: inherit;
+			}
+		}
+	}
+	.swiper-button-prev,
+	.swiper-button-next {
+		background-size: 13px;
+		background-position: center;
+		background-repeat: no-repeat;
+      top: 280px!important;
+		@include MQ(tab) {
+			top: calc(100% - 11px) !important;
+		}
+		svg {
+			display: none;
+		}
+	}
+	.swiper-button-prev {
+		background-image: url("../images/icons/icon-chev-left.svg");
+	}
+	.swiper-button-next {
+		background-image: url("../images/icons/icon-chev-right.svg");
+	}
+}

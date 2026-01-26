@@ -181,11 +181,11 @@
 						&:nth-child(#{$i}) {
 							h3 {
 								animation: fadeInUp 1s ease forwards;
-								animation-delay: $i * (1s /6);
+								animation-delay: calc($i * (1s /6));
 							}
 							p {
 								animation: fadeIn 1s ease forwards;
-								animation-delay: $i * (1s /6);
+								animation-delay: calc($i * (1s /6));
 							}
 						}
 					}
