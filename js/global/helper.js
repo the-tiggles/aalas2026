@@ -93,7 +93,7 @@ const HELPER = {
          // TUNABLE VALUES
          const PARALLAX_PX = 45;
          const SCALE_MAX = 1.15;
-         const BLUR_MAX = 10; // blur increases downward
+         const BLUR_MAX = 0; // blur increases downward
 
          const update = () => {
             state.forEach((data, el) => {
@@ -159,7 +159,7 @@ const HELPER = {
    },
    ppQuote: function() {
       var theParticles = document.querySelectorAll('.pp-quote #particles-js');
-      if (theParticles) {
+      if (theParticles.length > 0) {
          particlesJS('particles-js',
 
          {
@@ -412,7 +412,6 @@ const HELPER = {
                spaceBetween: 20,
                slidesPerView: 1,
                grabCursor: true,
-               slidesPerView: 1,
                height: 200,
                centeredSlides: true,
                autoHeight: false,

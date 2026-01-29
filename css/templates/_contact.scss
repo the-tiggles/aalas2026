@@ -7,3 +7,9 @@ body.contact .pp-50-split ul.socials-list {
         background-size: 35px 35px;
     }
 }
+
+body.contact {
+    section#default-main {
+        background: linear-gradient(180deg, #F5F5F5 0%, rgba(#DAE8EA, 1) 10%);
+    }
+}

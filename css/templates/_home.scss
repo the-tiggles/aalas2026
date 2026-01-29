@@ -99,8 +99,14 @@ section#home-main {
 	.text-content {
 		position: relative;
 		text-align: center;
-		max-width: 850px;
+		max-width: 950px;
 		margin: 0 auto;
+      p {
+         font-size: 20px;
+         @include MQ(S) {
+            font-size: 18px;
+         }
+      }
 	}
 }
 
